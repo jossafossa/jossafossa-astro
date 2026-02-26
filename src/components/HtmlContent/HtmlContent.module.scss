@@ -1,0 +1,29 @@
+.htmlContent {
+    > *:nth-child(1) {
+        margin-top: 0;
+    }
+
+    > *:nth-last-child(1) {
+        margin-bottom: 0;
+    }
+
+    > h1,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+        margin:0;
+        margin-top:2em;
+    }
+
+    > p {
+        margin-block:.5em;
+
+    }
+
+    > ul,
+    > ol {
+        margin-block:.5em;
+    }
+}

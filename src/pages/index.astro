@@ -1,17 +1,25 @@
 ---
+import { Container, Heading, Paragraph, Section } from "../components";
+import { Stack } from "../components/Stack/Stack";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { PostsGrid } from "../parts";
 
+const title = "Welcome to my blog";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title={title}>
+  <Section>
+    <Container>
+      <Stack>
+        <Heading level={1}>{title}</Heading>
+
+        <Paragraph
+          >Welcome to my new Astro blog. I'm excited to share my knowledge and
+          experience with you.</Paragraph
+        >
+
+        <PostsGrid />
+      </Stack>
+    </Container>
+  </Section>
+</BaseLayout>
