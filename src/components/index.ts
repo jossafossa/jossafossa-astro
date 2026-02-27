@@ -16,3 +16,4 @@ export * from "./Stack";
 export * from "./Paragraph";
 export * from "./Link";
 export * from "./HtmlContent";
+export * from "./Line";

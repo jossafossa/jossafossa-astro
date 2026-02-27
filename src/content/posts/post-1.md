@@ -3,6 +3,7 @@ title: My first markdown post
 slug: post-1
 date: 2024-01-01
 author: jossafossa
+image: ../../assets/images/post-1.jpg
 ---
 
 This is a test post. I'm testing the Markdown support in Astro.

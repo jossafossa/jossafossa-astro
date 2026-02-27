@@ -1,0 +1,11 @@
+{
+  "title": "Welcome to my blog",
+  "description": "Welcome to my new Astro blog. I'm excited to share my knowledge and experience with you.",
+  "sections": [
+    {
+      "heading": "Latest Posts",
+      "text": "Check out my latest blog posts below"
+    }
+  ]
+}
+

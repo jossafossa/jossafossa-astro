@@ -1,12 +1,24 @@
-import { Section, Container, Heading, Stack } from "../../components";
+import {
+  Section,
+  Container,
+  Heading,
+  Stack,
+  Paragraph,
+} from "../../components";
 import { PostsGrid } from "../PostsGrid";
 
-export const PostsSection = () => {
+type PostsSectionProps = {
+  title: string;
+  description?: string;
+};
+
+export const PostsSection = ({ title, description }: PostsSectionProps) => {
   return (
     <Section>
       <Container>
         <Stack>
-          <Heading level={1}>Posts</Heading>
+          <Heading level={1}>{title}</Heading>
+          {description && <Paragraph>{description}</Paragraph>}
           <PostsGrid />
         </Stack>
       </Container>

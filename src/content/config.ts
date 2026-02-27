@@ -1,5 +1,5 @@
-import { defineCollection, z, reference } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { defineCollection, z, reference } from "astro:content";
+import { glob } from "astro/loaders";
 
 const authorsCollection = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/authors" }),
@@ -17,17 +17,35 @@ const authorsCollection = defineCollection({
 
 const postsCollection = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/posts" }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     slug: z.string(),
     date: z.coerce.date().optional(),
     draft: z.boolean().optional(),
-    author: reference('authors').optional(),
+    author: reference("authors").optional(),
+    image: image().optional(),
+  }),
+});
+
+const pagesCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{json,md}", base: "./src/content/pages" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    // Sections alleen voor speciale JSON pages (home, posts-index, etc.)
+    sections: z
+      .array(
+        z.object({
+          heading: z.string().optional(),
+          text: z.string().optional(),
+        }),
+      )
+      .optional(),
   }),
 });
 
 export const collections = {
   authors: authorsCollection,
   posts: postsCollection,
+  pages: pagesCollection,
 };
-

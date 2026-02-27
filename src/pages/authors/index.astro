@@ -1,10 +1,17 @@
 ---
+import { getEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { AuthorsSection } from "../../parts";
 
-const title = "Authors";
+const pageContent = await getEntry("pages", "authors-index");
+if (!pageContent) {
+  throw new Error("Page content not found: authors-index");
+}
 ---
 
-<BaseLayout title={title}>
-  <AuthorsSection />
+<BaseLayout title={pageContent.data.title}>
+  <AuthorsSection
+    title={pageContent.data.title}
+    description={pageContent.data.description}
+  />
 </BaseLayout>

@@ -3,6 +3,7 @@ title: Welcome to Astro
 slug: welcome-to-astro
 date: 2024-02-25
 author: jossafossa
+image: ../../assets/images/astro-hero.jpg
 ---
 
 This is my first post on my new Astro blog. I'm excited to share my knowledge and experience with you.

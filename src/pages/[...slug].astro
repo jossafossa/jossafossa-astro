@@ -1,0 +1,41 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Container, Heading, Paragraph, Section, Stack, HtmlContent, Line } from "../components";
+
+export async function getStaticPaths() {
+  // Generic pages zijn altijd markdown
+  const genericPages = await getCollection("pages", (entry) => {
+    return entry.id.startsWith("generic/");
+  });
+
+  return genericPages.map((page) => ({
+    params: { slug: page.id.replace("generic/", "").replace(".md", "") },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+---
+
+<BaseLayout title={page.data.title}>
+  <Section>
+    <Container>
+      <Stack>
+        <Heading level={1}>{page.data.title}</Heading>
+
+        {page.data.description && (
+          <Paragraph>{page.data.description}</Paragraph>
+        )}
+
+        <Line />
+
+        <HtmlContent>
+          <Content />
+        </HtmlContent>
+      </Stack>
+    </Container>
+  </Section>
+</BaseLayout>
+

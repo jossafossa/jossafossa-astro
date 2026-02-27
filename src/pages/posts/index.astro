@@ -1,10 +1,17 @@
 ---
+import { getEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { PostsSection } from "../../parts";
 
-const title = "All posts";
+const pageContent = await getEntry("pages", "posts-index");
+if (!pageContent) {
+  throw new Error("Page content not found: posts-index");
+}
 ---
 
-<BaseLayout title={title}>
-  <PostsSection />
+<BaseLayout title={pageContent.data.title}>
+  <PostsSection
+    title={pageContent.data.title}
+    description={pageContent.data.description}
+  />
 </BaseLayout>

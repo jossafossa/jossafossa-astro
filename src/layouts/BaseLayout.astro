@@ -14,7 +14,6 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <link rel="stylesheet" href="/assets/css/main.scss" />
   </head>
   <Body>
     <Header>
@@ -22,6 +21,7 @@ const { title } = Astro.props;
         <Menu.Item href="/">Home</Menu.Item>
         <Menu.Item href="/posts/">Alle Posts</Menu.Item>
         <Menu.Item href="/authors/">Authors</Menu.Item>
+        <Menu.Item href="/about/">About</Menu.Item>
       </Menu>
     </Header>
 
@@ -31,6 +31,8 @@ const { title } = Astro.props;
 
     <Footer />
   </Body>
-
-
 </html>
+
+<style is:global lang="scss">
+  @use "../styles/main";
+</style>
