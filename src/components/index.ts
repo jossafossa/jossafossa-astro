@@ -1,6 +1,5 @@
 export * from "./Menu";
 export * from "./Footer";
-export * from "./Card";
 export * from "./Button";
 export * from "./CardPost";
 export * from "./Container";
@@ -16,3 +15,5 @@ export * from "./Paragraph";
 export * from "./Link";
 export * from "./HtmlContent";
 export * from "./Line";
+export * from "./Logo";
+export * from "./Page";

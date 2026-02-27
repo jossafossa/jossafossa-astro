@@ -1,10 +1,11 @@
+import type { PropsWithChildren } from "react";
 import { Container } from "../Container";
 import styles from "./Footer.module.scss";
 
-export const Footer = () => {
+export const Footer = ({ children }: PropsWithChildren) => {
   return (
     <footer className={styles.footer}>
-      <Container>&copy; {new Date().getFullYear()} My Blog</Container>
+      <Container>{children}</Container>
     </footer>
   );
 };

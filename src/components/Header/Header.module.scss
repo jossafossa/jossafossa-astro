@@ -1,7 +1,14 @@
 .header {
+    width:100%;
     position: sticky;
-    background-color: black;
     top:0;
-    padding-block: 1rem;
-    color:white;
+}
+
+.inner {
+    padding: 1rem 2rem;
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+    margin-block:1rem;
+    border-radius:100px;
+    margin-inline: -2rem;
 }

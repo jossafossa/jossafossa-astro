@@ -1,4 +1,50 @@
 :root {
-    --background: black;
-    --text: white;
+    color-scheme: light dark;
+
+    // base colors
+    --grey-0: #ffffff;
+    --grey-100: #f5f5f5;
+    --grey-200: #e5e7eb;
+    --grey-300: #d1d5db;
+    --grey-400: #9ca3af;
+    --grey-500: #6b7280;
+    --grey-600: #4b5563;
+    --grey-700: #373f4a;
+    --grey-800: #252f3a;
+    --grey-900: #111820;
+
+    --primary-100: #fee5df;
+    --primary-200: #fdc4b8;
+    --primary-300: #fb9d88;
+    --primary-400: #fa7b5f;
+    --primary-500: #f85a37;
+    --primary-600: #e03d1a;
+    --primary-700: #b82f13;
+    --primary-800: #8f230e;
+    --primary-900: #661909;
+
+    // theme colors
+    --text-color-light: var(--grey-900);
+    --text-color-color-dark: var(--grey-0);
+    --background-color-light: var(--grey-0);
+    --background-color-dark: var(--grey-900);
+    --background-color-muted-light: var(--grey-100);
+    --background-color-muted-dark: var(--grey-800);
+    --primary-color-light: var(--primary-500);
+    --primary-color-dark: var(--primary-500);
+
+    // light-dark colors
+    --text-color: light-dark(var(--text-color-light), var(--text-color-dark));
+    --background-color: light-dark(var(--background-color-light), var(--background-color-dark));
+    --background-color-muted: light-dark(var(--background-color-muted-light), var(--background-color-muted-dark));
+    --primary-color: light-dark(var(--primary-color-light), var(--primary-color-dark));
+    
+    // fonts
+    --font-family: "Noto Sans", sans-serif;
+    --font-family-mono: "Noto Sans Mono", monospace;
+    --font-weight: 500;
+    --font-size: 1rem;
+    --line-height: 1.5;
+    --font: var(--font-weight) var(--font-size) / var(--line-height) var(--font-family);
+    --font-mono: var(--font-weight) var(--font-size) / var(--line-height) var(--font-family-mono);
 }

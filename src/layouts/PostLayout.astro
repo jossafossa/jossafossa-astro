@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import { Container } from "@/components";
 
 interface Props {
   title: string;
@@ -11,8 +10,5 @@ const { title } = Astro.props;
 ---
 
 <BaseLayout title={title}>
-  <Container>
-
-    <slot />
-  </Container>
+  <slot />
 </BaseLayout>

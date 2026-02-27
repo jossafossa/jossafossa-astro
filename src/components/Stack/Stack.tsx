@@ -6,12 +6,16 @@ import classNames from "classnames";
 type StackProps = {
   vertical?: true;
   horizontal?: true;
+  align?: "start" | "center" | "end";
+  justify?: "start" | "center" | "end" | "space-between";
 };
 
 export const Stack = ({
   children,
   vertical,
   horizontal,
+  align,
+  justify,
 }: PropsWithChildren<StackProps>) => {
   return (
     <div
@@ -19,6 +23,8 @@ export const Stack = ({
         styles.stack,
         vertical && styles.vertical,
         horizontal && styles.horizontal,
+        align && styles[`align-${align}`],
+        justify && styles[`justify-${justify}`],
       )}
     >
       {children}

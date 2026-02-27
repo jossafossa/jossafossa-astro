@@ -4,8 +4,10 @@ import styles from "./Header.module.scss";
 
 export const Header = ({ children }: PropsWithChildren) => {
   return (
-    <header className={styles.header}>
-      <Container>{children}</Container>
-    </header>
+    <div className={styles.header}>
+      <Container>
+        <header className={styles.inner}>{children}</header>
+      </Container>
+    </div>
   );
 };
