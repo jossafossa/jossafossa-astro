@@ -38,18 +38,18 @@ const { Content } = await render(author);
             author.data.twitter) && (
             <Stack horizontal>
               {author.data.email && (
-                <Link href={`mailto:${author.data.email}`}>Email</Link>
+                <Link href={`mailto:${author.data.email}`} underlined>Email</Link>
               )}
               {author.data.website && (
-                <Link href={author.data.website}>Website</Link>
+                <Link href={author.data.website} underlined>Website</Link>
               )}
               {author.data.github && (
-                <Link href={`https://github.com/${author.data.github}`}>
+                <Link href={`https://github.com/${author.data.github}`} underlined>
                   GitHub
                 </Link>
               )}
               {author.data.twitter && (
-                <Link href={`https://twitter.com/${author.data.twitter}`}>
+                <Link href={`https://twitter.com/${author.data.twitter}`} underlined>
                   Twitter
                 </Link>
               )}

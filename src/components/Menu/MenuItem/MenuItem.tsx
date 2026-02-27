@@ -1,5 +1,7 @@
 import type { PropsWithChildren } from "react";
-import { Link } from "../../Link/Link";
+import { Link } from "../../Link";
+
+import styles from "./MenuItem.module.scss";
 
 type MenuItemProps = {
   href: string;
@@ -13,7 +15,11 @@ export const MenuItem = ({
 }: PropsWithChildren<MenuItemProps>) => {
   return (
     <li>
-      {active ? <span>{children}</span> : <Link href={href}>{children}</Link>}
+      {active ? (
+        <span className={styles.active}>{children}</span>
+      ) : (
+        <Link href={href}>{children}</Link>
+      )}
     </li>
   );
 };

@@ -25,7 +25,11 @@
 
     // theme colors
     --text-color-light: var(--grey-900);
-    --text-color-color-dark: var(--grey-0);
+    --text-color-dark: var(--grey-0);
+    --text-color-muted-light: var(--grey-400);
+    --text-color-muted-dark: var(--grey-500);
+    --text-color-faded-light: var(--grey-200);
+    --text-color-faded-dark: var(--grey-700);
     --background-color-light: var(--grey-0);
     --background-color-dark: var(--grey-900);
     --background-color-muted-light: var(--grey-100);
@@ -35,6 +39,8 @@
 
     // light-dark colors
     --text-color: light-dark(var(--text-color-light), var(--text-color-dark));
+    --text-color-muted: light-dark(var(--text-color-muted-light), var(--text-color-muted-dark));
+    --text-color-faded: light-dark(var(--text-color-faded-light), var(--text-color-faded-dark));
     --background-color: light-dark(var(--background-color-light), var(--background-color-dark));
     --background-color-muted: light-dark(var(--background-color-muted-light), var(--background-color-muted-dark));
     --primary-color: light-dark(var(--primary-color-light), var(--primary-color-dark));
@@ -47,4 +53,9 @@
     --line-height: 1.5;
     --font: var(--font-weight) var(--font-size) / var(--line-height) var(--font-family);
     --font-mono: var(--font-weight) var(--font-size) / var(--line-height) var(--font-family-mono);
+
+    --page-spacing: 5rem;
+    @media (max-width: 720px) {
+        --page-spacing: 2rem;
+    }
 }

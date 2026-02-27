@@ -47,7 +47,9 @@ export const BasePage = ({
           <Footer>
             <Stack horizontal justify="space-between" align="center">
               <Paragraph>&copy; {new Date().getFullYear()} My Blog</Paragraph>
-              <Logo />
+              <BlockLink href="/">
+                <Logo />
+              </BlockLink>
             </Stack>
           </Footer>
         }

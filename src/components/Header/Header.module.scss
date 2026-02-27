@@ -5,10 +5,11 @@
 }
 
 .inner {
-    padding: 1rem 2rem;
+    --padding: calc(var(--page-spacing) / 2);
+    padding: 1rem max(var(--padding), 2rem);
     background-color: var(--background-color-light);
     color: var(--text-color-light);
     margin-block:1rem;
     border-radius:100px;
-    margin-inline: -2rem;
+    margin-inline: calc(-1 * var(--padding));
 }

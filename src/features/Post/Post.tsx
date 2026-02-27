@@ -15,6 +15,7 @@ export const Post = async ({ post }: PostProps) => {
       date={post.data.date}
       href={`/posts/${post.data.slug}/`}
       author={author}
+      image={post.data.image}
     />
   );
 };

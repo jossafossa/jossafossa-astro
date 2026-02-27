@@ -4,5 +4,11 @@
   list-style: none;
   margin: 0;
   padding: 0;
+
+  > *:not(:nth-child(1)):before {
+    content: "|";
+    margin-right: 1rem;
+    color: var(--text-color-faded-light);
+  }
 }
 

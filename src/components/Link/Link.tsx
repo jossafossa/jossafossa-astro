@@ -10,12 +10,12 @@ type LinkProps = {
 export const Link = ({
   href,
   children,
-  underlined = true,
+  underlined = false,
 }: PropsWithChildren<LinkProps>) => {
   return (
     <a
       href={href}
-      className={classNames(styles.link, !underlined && styles.notUnderlined)}
+      className={classNames(styles.link, underlined && styles.underlined)}
     >
       {children}
     </a>
