@@ -10,7 +10,7 @@ import {
   Paragraph,
   HtmlContent,
 } from "../../components";
-import { PostsGrid } from "../../parts";
+import { PostsGrid } from "../../features";
 
 export async function getStaticPaths() {
   const authors = await getCollection("authors");

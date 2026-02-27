@@ -1,5 +1,6 @@
 ---
 import { Footer, Menu, Header, Body } from "../components";
+import { navigation } from "../data/navigation";
 
 interface Props {
   title: string;
@@ -18,10 +19,11 @@ const { title } = Astro.props;
   <Body>
     <Header>
       <Menu>
-        <Menu.Item href="/">Home</Menu.Item>
-        <Menu.Item href="/posts/">Alle Posts</Menu.Item>
-        <Menu.Item href="/authors/">Authors</Menu.Item>
-        <Menu.Item href="/about/">About</Menu.Item>
+        {navigation.main.map((item) => (
+          <Menu.Item href={item.href}>
+            {item.label}
+          </Menu.Item>
+        ))}
       </Menu>
     </Header>
 

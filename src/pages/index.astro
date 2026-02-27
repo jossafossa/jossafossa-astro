@@ -3,7 +3,7 @@ import { getEntry } from "astro:content";
 import { Container, Heading, Paragraph, Section } from "../components";
 import { Stack } from "../components/Stack/Stack";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { PostsGrid } from "../parts";
+import { PostsGrid } from "../features";
 
 const pageContent = await getEntry("pages", "home");
 if (!pageContent) {

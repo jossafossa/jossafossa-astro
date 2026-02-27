@@ -1,7 +1,7 @@
 ---
 import { getEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { PostsSection } from "../../parts";
+import { PostsSection } from "../../features";
 
 const pageContent = await getEntry("pages", "posts-index");
 if (!pageContent) {

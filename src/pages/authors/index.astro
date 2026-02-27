@@ -1,7 +1,7 @@
 ---
 import { getEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { AuthorsSection } from "../../parts";
+import { AuthorsSection } from "../../features";
 
 const pageContent = await getEntry("pages", "authors-index");
 if (!pageContent) {
