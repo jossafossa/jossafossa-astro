@@ -187,7 +187,15 @@ ssh-copy-id -i ~/.ssh/deploy_key.pub user@server.com
    - `DEPLOY_PATH` - Deploy path (e.g., `/var/www/html/`)
    - `DEPLOY_KEY` - Private SSH key
 
-4. Push to `main` → Auto-deploy! 🎉
+4. Create and push to `production` branch → Auto-deploy! 🎉
+
+### Workflow
+
+```
+main        → Development (no deploy)
+  ↓ merge
+production  → Auto-deploy to server 🚀
+```
 
 See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
 

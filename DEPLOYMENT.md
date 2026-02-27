@@ -77,28 +77,71 @@ ssh -i ~/.ssh/deploy_key user@your-server.com
 
 If successful, you should be logged in without a password.
 
-### 5. Deploy
-
-Push to the `main` branch:
+### 5. Create production branch
 
 ```bash
-git add .
-git commit -m "Setup deployment"
-git push origin main
+# Create production branch from main
+git checkout -b production
+git push -u origin production
 ```
 
-Or trigger manually:
+### 6. Deploy
+
+**Option A: Merge to production**
+
+```bash
+# Work on main
+git checkout main
+git add .
+git commit -m "Add new feature"
+git push origin main
+
+# When ready to deploy
+git checkout production
+git merge main
+git push origin production  # 🚀 Auto-deploys!
+```
+
+**Option B: Manual trigger**
+
 - Go to GitHub → Actions → Deploy to PHP Server → Run workflow
+- Select `production` branch
+- Click "Run workflow"
 
 ## How It Works
 
-1. **Push to main** → Triggers GitHub Actions
+1. **Push to production** → Triggers GitHub Actions
 2. **GitHub Actions:**
    - Checks out code
    - Installs Node.js dependencies
    - Runs `npm run build`
    - Uploads `dist/` to server via rsync
 3. **Server** serves static files
+
+## Workflow
+
+```
+main        → Development (no deploy)
+  ↓ merge
+production  → Auto-deploy to server 🚀
+```
+
+**Development:**
+```bash
+git checkout main
+# Make changes
+git commit -m "Add feature"
+git push origin main
+# No deployment happens
+```
+
+**Deploy to production:**
+```bash
+git checkout production
+git merge main
+git push origin production
+# 🚀 Triggers deployment!
+```
 
 ## File Structure on Server
 
@@ -130,16 +173,6 @@ chown -R www-data:www-data /var/www/html
 ### rsync Errors
 
 Check the GitHub Actions logs for detailed error messages.
-
-### .htaccess Not Working
-
-Ensure Apache has `mod_rewrite` enabled:
-
-```bash
-# On server
-sudo a2enmod rewrite
-sudo systemctl restart apache2
-```
 
 ## Manual Deployment
 
