@@ -1,7 +1,6 @@
 export * from "./Menu";
 export * from "./Footer";
 export * from "./Card";
-export * from "./Alert";
 export * from "./Button";
 export * from "./CardPost";
 export * from "./Container";

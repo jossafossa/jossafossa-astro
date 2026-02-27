@@ -1,164 +1,238 @@
 # Jossafossa Astro Blog
 
-Een moderne blog gebouwd met Astro 5, gemigreerd van Lume.
+A modern blog built with Astro 5, featuring optimized builds and automated deployment.
 
 ## 🚀 Features
 
-- **Astro 5.18.0** - De nieuwste versie van Astro
-- **Content Collections** - Type-safe content management voor blog posts en Authors
-- **Author System** - Volledige auteur ondersteuning met relaties tussen posts en Authors
-- **TypeScript (Strict)** - Volledige type safety
-- **Markdown Support** - Schrijf posts en author bio's in Markdown
-- **Static Site Generation** - Razendsnelle performance, 0 JavaScript
-- **Component-based Architecture** - Herbruikbare Astro componenten
+- **Astro 5** - Latest version with modern static site generation
+- **Content Collections** - Type-safe content management for blog posts and authors
+- **Author System** - Full author support with post-author relationships
+- **TypeScript (Strict)** - Complete type safety throughout the project
+- **React Components** - TSX components for stateful features
+- **CSS Modules** - Scoped SCSS with short class names in production
+- **Path Aliases** - Clean imports with `@/components`, `@/features`, etc.
+- **Optimized Builds** - Compressed HTML, minified CSS, short class names
+- **Auto Deployment** - GitHub Actions → PHP server via SSH/rsync
+- **Static Site Generation** - Blazing fast performance, zero JavaScript by default
 
-## 📁 Project Structuur
+## 📁 Project Structure
 
 ```
 /
+├── .github/
+│   └── workflows/
+│       └── deploy.yml         # Auto-deployment to PHP server
 ├── public/
-│   ├── favicon.svg
-│   └── style.css          # Globale styling
+│   └── .htaccess              # Apache config for clean URLs
 ├── src/
-│   ├── components/
-│   │   ├── index.ts       # Barrel file voor alle components
-│   │   ├── Menu/
-│   │   │   ├── Menu.astro
-│   │   │   ├── Menu.module.scss
-│   │   │   └── index.ts
-│   │   ├── Footer/
-│   │   │   ├── Footer.astro
-│   │   │   ├── Footer.module.scss
-│   │   │   └── index.ts
-│   │   ├── Card/
-│   │   ├── Alert/
-│   │   └── Button/
+│   ├── assets/                # Images (optimized by Astro)
+│   ├── components/            # Presentational components (stateless)
+│   │   ├── ui/                # Button, Link, Heading, etc.
+│   │   ├── layout/            # Container, Section, Header, Footer
+│   │   ├── cards/             # Card variants
+│   │   └── index.ts           # Barrel export
+│   ├── features/              # Container components (stateful)
+│   │   ├── posts/             # PostsGrid, PostsSection
+│   │   ├── authors/           # AuthorsGrid, AuthorsSection
+│   │   └── index.ts           # Barrel export
 │   ├── content/
-│   │   ├── config.ts      # Content collections configuratie
-│   │   ├── posts/         # Blog posts (Markdown)
-│   │   └── authors/       # Authors (Markdown)
+│   │   ├── config.ts          # Content collections config
+│   │   ├── posts/             # Blog posts (Markdown)
+│   │   ├── authors/           # Authors (Markdown)
+│   │   └── pages/             # Generic pages (Markdown)
+│   ├── data/
+│   │   ├── navigation.ts      # Navigation menu data
+│   │   └── index.ts           # Barrel export
 │   ├── layouts/
-│   │   ├── BaseLayout.astro  # Basis layout met header/footer
-│   │   └── PostLayout.astro  # Layout voor blog posts
-│   └── pages/
-│       ├── index.astro       # Homepage
-│       ├── posts/
-│       │   ├── index.astro   # Blog overzicht
-│       │   └── [...slug].astro  # Dynamische post routes
-│       └── authors/
-│           ├── index.astro   # Authors overzicht
-│           └── [...slug].astro  # Dynamische author routes
+│   │   ├── BaseLayout.astro   # Base layout with header/footer
+│   │   └── PostLayout.astro   # Layout for blog posts
+│   ├── pages/
+│   │   ├── index.astro        # Homepage
+│   │   ├── posts/
+│   │   │   ├── index.astro    # Posts overview
+│   │   │   └── [...slug].astro # Dynamic post routes
+│   │   └── authors/
+│   │       ├── index.astro    # Authors overview
+│   │       └── [...slug].astro # Dynamic author routes
+│   └── styles/
+│       ├── main.scss          # Global styles entry
+│       ├── reset.scss         # CSS reset
+│       ├── variables.scss     # SCSS variables
+│       └── base.scss          # Base styles
+├── astro.config.mjs           # Astro configuration
+├── tsconfig.json              # TypeScript config with path aliases
 └── package.json
 ```
 
 ## 🧞 Commands
 
-Alle commands worden uitgevoerd vanaf de project root:
+All commands are run from the root of the project:
 
-| Command             | Action                                            |
-| :------------------ | :------------------------------------------------ |
-| `npm install`       | Installeer dependencies                           |
-| `npm run dev`       | Start dev server op `localhost:4321`              |
-| `npm run build`     | Build productie site naar `./dist/`               |
-| `npm run preview`   | Preview je build lokaal, voor deployment          |
-| `npm run astro ...` | Run CLI commands zoals `astro add`, `astro check` |
+| Command               | Action                                              |
+| :-------------------- | :-------------------------------------------------- |
+| `npm install`         | Install dependencies                                |
+| `npm run dev`         | Start dev server at `localhost:4321`                |
+| `npm run build`       | Build production site to `./dist/` (compressed)     |
+| `npm run build:debug` | Build with readable HTML (for debugging)            |
+| `npm run preview`     | Preview your build locally, before deploying        |
+| `npm run astro ...`   | Run CLI commands like `astro add`, `astro check`    |
 
-## 📝 Een nieuwe blog post toevoegen
+## 📝 Adding a New Blog Post
 
-1. Maak een nieuw `.md` bestand in `src/content/posts/`
-2. Voeg frontmatter toe:
+1. Create a new `.md` file in `src/content/posts/`
+2. Add frontmatter:
 
 ```markdown
 ---
-title: Mijn Nieuwe Post
+title: My New Post
 date: 2024-02-25
-author: joost # Optioneel: referentie naar een author
+author: jossafossa # Optional: reference to an author
+draft: false       # Optional: set to true to hide from production
 ---
 
-## Inhoud
+## Content
 
-Je post content hier...
+Your post content here...
 ```
 
-3. De post verschijnt automatisch in het blog overzicht!
+3. The post will automatically appear in the blog overview!
 
-## 👤 Een nieuwe auteur toevoegen
+## 👤 Adding a New Author
 
-1. Maak een nieuw `.md` bestand in `src/content/authors/`
-2. Voeg frontmatter toe:
+1. Create a new `.md` file in `src/content/authors/`
+2. Add frontmatter:
 
 ```markdown
 ---
-name: Jouw Naam
-bio: Een korte bio over jezelf
-avatar: /avatars/jouw-foto.jpg # Optioneel
-email: jouw@email.com # Optioneel
-website: https://jouwsite.nl # Optioneel
-github: jouwusername # Optioneel
-twitter: jouwhandle # Optioneel
+name: Your Name
+slug: your-slug
+bio: A short bio about yourself
+avatar: /avatars/your-photo.jpg # Optional
+email: your@email.com # Optional
+website: https://yoursite.com # Optional
+github: yourusername # Optional
+twitter: yourhandle # Optional
 ---
 
-## Over mij
+## About Me
 
-Meer informatie over jezelf...
+More information about yourself...
 ```
 
-3. Verwijs naar de auteur in je posts met `author: bestandsnaam` (zonder .md)
+3. Reference the author in your posts with `author: filename` (without .md)
 
 ## 🎨 Styling
 
-Dit project gebruikt **100% scoped SCSS** - geen global CSS files!
+This project uses **CSS Modules** with optimized class names in production.
 
-### Scoped SCSS in componenten
+### CSS Modules
 
-Elke component heeft zijn eigen styles die automatisch scoped zijn:
+Each component has its own scoped styles:
 
-```astro
-<style lang="scss">
-  .my-component {
-    padding: 1rem;
+```tsx
+// Component.module.scss
+.container {
+  padding: 1rem;
 
-    &__title {
-      color: #0066cc;
-    }
-
-    &:hover {
-      background: #f0f0f0;
-    }
+  &:hover {
+    background: #f0f0f0;
   }
-</style>
+}
 ```
 
-### Voordelen:
+```tsx
+// Component.tsx
+import styles from './Component.module.scss';
 
-- ✅ **Geen CSS conflicts** - Elke component is geïsoleerd
-- ✅ **Automatische optimalisatie** - Alleen gebruikte CSS wordt geladen
-- ✅ **SCSS features** - Variables, nesting, mixins
-- ✅ **Inline in HTML** - Kritieke CSS voor snelheid
-- ✅ **0 externe CSS files** - Alles geoptimaliseerd en gebundeld
+export const Component = () => (
+  <div className={styles.container}>...</div>
+);
+```
 
-### Global styles
+### Production Optimization
 
-Alleen basis resets en typography staan in `BaseLayout.astro` met `is:global`
+- **Development:** `class="_container_a1B2c3"` (readable)
+- **Production:** `class="hPHdrB"` (short, 6 chars)
+- **Result:** ~19% smaller HTML files
 
-## 🔧 Configuratie
+### Global Styles
 
-De Astro configuratie staat in `astro.config.mjs`. Hier kun je:
+Global styles are in `src/styles/`:
+- `main.scss` - Entry point
+- `reset.scss` - CSS reset
+- `variables.scss` - SCSS variables
+- `base.scss` - Base styles
 
-- Integraties toevoegen (React, Vue, Svelte, Tailwind, etc.)
-- Build opties aanpassen
-- Adapter configureren voor SSR/SSG
+Imported in `BaseLayout.astro` with `@use "../styles/main"`
 
-## 📚 Meer leren
+## 🚀 Deployment
 
-- [Astro Documentatie](https://docs.astro.build)
+This project auto-deploys to a PHP server via GitHub Actions.
+
+### Setup
+
+1. Generate SSH key:
+```bash
+ssh-keygen -t ed25519 -C "github-deploy" -f ~/.ssh/deploy_key -N ""
+```
+
+2. Add public key to server:
+```bash
+ssh-copy-id -i ~/.ssh/deploy_key.pub user@server.com
+```
+
+3. Add GitHub Secrets:
+   - `DEPLOY_HOST` - Server hostname
+   - `DEPLOY_USER` - SSH username
+   - `DEPLOY_PATH` - Deploy path (e.g., `/var/www/html/`)
+   - `DEPLOY_KEY` - Private SSH key
+
+4. Push to `main` → Auto-deploy! 🎉
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
+
+## 🔧 Configuration
+
+### Path Aliases
+
+TypeScript path aliases are configured in `tsconfig.json`:
+
+```typescript
+import { Button } from "@/components";      // ✅ Via barrel file
+import { PostsGrid } from "@/features";     // ✅ Via barrel file
+import BaseLayout from "@/layouts/BaseLayout.astro"; // ✅ Direct import
+import { navigation } from "@/data";        // ✅ Via barrel file
+```
+
+### Astro Config
+
+Key settings in `astro.config.mjs`:
+
+- **HTML Compression:** Enabled in production, disabled with `COMPRESS=false`
+- **CSS Modules:** Short class names in production
+- **cssnano:** Advanced CSS minification
+- **Build Format:** Directory structure (`/about/index.html`)
+
+## 📚 Learn More
+
+- [Astro Documentation](https://docs.astro.build)
 - [Content Collections Guide](https://docs.astro.build/en/guides/content-collections/)
 - [Astro Discord](https://astro.build/chat)
 
-## 🆚 Verschillen met Lume
+## 🏗️ Architecture
 
-- **Content Collections** in plaats van `data.search.pages()`
-- **`.astro` componenten** in plaats van `.tsx` met Lume-specifieke exports
-- **Frontmatter in componenten** voor metadata in plaats van exports
-- **`getStaticPaths()`** voor dynamische routes
-- **Type-safe content** met Zod schema's
+### Components vs Features
+
+- **`components/`** - Presentational, stateless UI components
+- **`features/`** - Container components with data fetching and business logic
+- **`layouts/`** - Page layouts (`.astro` files with `<html>`, `<head>`, etc.)
+
+### Data Flow
+
+```
+pages/ → features/ → components/
+         ↓
+      content/
+```
+
+Pages use features, features fetch data and use components.

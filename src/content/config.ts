@@ -17,14 +17,15 @@ const authorsCollection = defineCollection({
 
 const postsCollection = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/posts" }),
-  schema: ({ image }) => z.object({
-    title: z.string(),
-    slug: z.string(),
-    date: z.coerce.date().optional(),
-    draft: z.boolean().optional(),
-    author: reference("authors").optional(),
-    image: image().optional(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      slug: z.string(),
+      date: z.coerce.date().optional(),
+      draft: z.boolean().optional(),
+      author: reference("authors").optional(),
+      image: image().optional(),
+    }),
 });
 
 const pagesCollection = defineCollection({
@@ -32,7 +33,6 @@ const pagesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
-    // Sections alleen voor speciale JSON pages (home, posts-index, etc.)
     sections: z
       .array(
         z.object({

@@ -4,7 +4,7 @@ import {
   Section,
   Stack,
   Paragraph,
-} from "../../components";
+} from "@/components";
 import { AuthorsGrid } from "../AuthorsGrid";
 
 type AuthorsSectionProps = {

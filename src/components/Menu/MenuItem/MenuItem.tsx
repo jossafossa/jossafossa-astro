@@ -3,15 +3,17 @@ import { Link } from "../../Link/Link";
 
 type MenuItemProps = {
   href: string;
+  active: boolean;
 };
 
 export const MenuItem = ({
   children,
   href,
+  active,
 }: PropsWithChildren<MenuItemProps>) => {
   return (
     <li>
-      <Link href={href}>{children}</Link>
+      {active ? <span>{children}</span> : <Link href={href}>{children}</Link>}
     </li>
   );
 };

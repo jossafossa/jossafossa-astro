@@ -1,5 +1,5 @@
 import { getCollection } from "astro:content";
-import { CardGrid } from "../../components";
+import { CardGrid } from "@/components";
 import { Author } from "../Author";
 
 export const AuthorsGrid = async () => {

@@ -4,7 +4,7 @@ import {
   Heading,
   Stack,
   Paragraph,
-} from "../../components";
+} from "@/components";
 import { PostsGrid } from "../PostsGrid";
 
 type PostsSectionProps = {

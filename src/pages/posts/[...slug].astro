@@ -1,14 +1,14 @@
 ---
 import { getCollection, render } from "astro:content";
 import { Image } from "astro:assets";
-import PostLayout from "../../layouts/PostLayout.astro";
+import PostLayout from "@/layouts/PostLayout.astro";
 import {
   Container,
   Heading,
   HtmlContent,
   Section,
   Stack,
-} from "../../components";
+} from "@/components";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");

@@ -1,5 +1,5 @@
 import { getEntry, type ReferenceDataEntry } from "astro:content";
-import { CardPost } from "../../components";
+import { CardPost } from "@/components";
 
 type AuthorProps = {
   author: ReferenceDataEntry<"authors">;
