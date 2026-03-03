@@ -1,5 +1,48 @@
+// PRIMITIVES (SCSS variables - compile-time only)
+// -------------------------------------------------
+// These are NOT available at runtime, only for building semantic tokens
+
+// Colors
+$primitive-color-grey-0: #ffffff;
+$primitive-color-grey-100: #f5f5f5;
+$primitive-color-grey-200: #e5e7eb;
+$primitive-color-grey-300: #d1d5db;
+$primitive-color-grey-400: #9ca3af;
+$primitive-color-grey-500: #6b7280;
+$primitive-color-grey-600: #4b5563;
+$primitive-color-grey-700: #373f4a;
+$primitive-color-grey-800: #252f3a;
+$primitive-color-grey-900: #111820;
+
+$primitive-color-primary-100: #fee5df;
+$primitive-color-primary-200: #fdc4b8;
+$primitive-color-primary-300: #fb9d88;
+$primitive-color-primary-400: #fa7b5f;
+$primitive-color-primary-500: #f85a37;
+$primitive-color-primary-600: #e03d1a;
+$primitive-color-primary-700: #b82f13;
+$primitive-color-primary-800: #8f230e;
+$primitive-color-primary-900: #661909;
+
+// Fonts
+$primitive-font-family-normal: "Noto Sans", sans-serif;
+$primitive-font-family-mono: "Noto Sans Mono", monospace;
+$primitive-font-weight-normal: 500;
+$primitive-font-weight-bold: 700;
+
+// SEMANTIC TOKENS (CSS variables - runtime)
+// ------------------------------------------
+// Naming convention: --{prefix}-{category}-{type}-{variant}-{state}
+// - prefix: semantic
+// - category: color, spacing, font, shadow
+// - type: text, bg, border
+// - item: primary, secondary, success
+// - variant: light, dark
+// - state: hover, active, disabled
+
 :root {
     color-scheme: light dark;
+    
 
     // Color tokens (light/dark variants)
     --semantic-color-text-light: #{$primitive-color-grey-900};
@@ -31,9 +74,8 @@
     // Spacing tokens
     --semantic-spacing-page: 5rem;
 
-    --page-spacing: 5rem;
     @media (max-width: 720px) {
-        --page-spacing: 2rem;
+        --semantic-spacing-page: 2rem;
     }
 }
 
