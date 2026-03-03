@@ -1,61 +1,46 @@
 :root {
     color-scheme: light dark;
 
-    // base colors
-    --grey-0: #ffffff;
-    --grey-100: #f5f5f5;
-    --grey-200: #e5e7eb;
-    --grey-300: #d1d5db;
-    --grey-400: #9ca3af;
-    --grey-500: #6b7280;
-    --grey-600: #4b5563;
-    --grey-700: #373f4a;
-    --grey-800: #252f3a;
-    --grey-900: #111820;
+    // Color tokens (light/dark variants)
+    --semantic-color-text-light: #{$primitive-color-grey-900};
+    --semantic-color-text-dark: #{$primitive-color-grey-0};
+    --semantic-color-text-muted-light: #{$primitive-color-grey-400};
+    --semantic-color-text-muted-dark: #{$primitive-color-grey-500};
+    --semantic-color-text-faded-light: #{$primitive-color-grey-200};
+    --semantic-color-text-faded-dark: #{$primitive-color-grey-700};
 
-    --primary-100: #fee5df;
-    --primary-200: #fdc4b8;
-    --primary-300: #fb9d88;
-    --primary-400: #fa7b5f;
-    --primary-500: #f85a37;
-    --primary-600: #e03d1a;
-    --primary-700: #b82f13;
-    --primary-800: #8f230e;
-    --primary-900: #661909;
 
-    // theme colors
-    --text-color-light: var(--grey-900);
-    --text-color-dark: var(--grey-0);
-    --text-color-muted-light: var(--grey-400);
-    --text-color-muted-dark: var(--grey-500);
-    --text-color-faded-light: var(--grey-200);
-    --text-color-faded-dark: var(--grey-700);
-    --background-color-light: var(--grey-0);
-    --background-color-dark: var(--grey-900);
-    --background-color-muted-light: var(--grey-100);
-    --background-color-muted-dark: var(--grey-800);
-    --primary-color-light: var(--primary-500);
-    --primary-color-dark: var(--primary-500);
+    --semantic-color-background-light: #{$primitive-color-grey-0};
+    --semantic-color-background-dark: #{$primitive-color-grey-900};
+    --semantic-color-background-muted-light: #{$primitive-color-grey-100};
+    --semantic-color-background-muted-dark: #{$primitive-color-grey-800};
 
-    // light-dark colors
-    --text-color: light-dark(var(--text-color-light), var(--text-color-dark));
-    --text-color-muted: light-dark(var(--text-color-muted-light), var(--text-color-muted-dark));
-    --text-color-faded: light-dark(var(--text-color-faded-light), var(--text-color-faded-dark));
-    --background-color: light-dark(var(--background-color-light), var(--background-color-dark));
-    --background-color-muted: light-dark(var(--background-color-muted-light), var(--background-color-muted-dark));
-    --primary-color: light-dark(var(--primary-color-light), var(--primary-color-dark));
-    
-    // fonts
-    --font-family: "Noto Sans", sans-serif;
-    --font-family-mono: "Noto Sans Mono", monospace;
-    --font-weight: 500;
-    --font-size: 1rem;
-    --line-height: 1.5;
-    --font: var(--font-weight) var(--font-size) / var(--line-height) var(--font-family);
-    --font-mono: var(--font-weight) var(--font-size) / var(--line-height) var(--font-family-mono);
+    --semantic-color-primary-light: #{$primitive-color-primary-500};
+    --semantic-color-primary-dark: #{$primitive-color-primary-400};
+
+    // Font tokens
+    --semantic-font-family-default: #{$primitive-font-family-normal};
+    --semantic-font-family-mono: #{$primitive-font-family-mono};
+    --semantic-font-weight-default: #{$primitive-font-weight-normal};
+    --semantic-font-weight-bold: #{$primitive-font-weight-bold};
+    --semantic-font-size-default: 1rem;
+    --semantic-line-height-default: 1.5;
+    --semantic-font-default: var(--semantic-font-weight-default) var(--semantic-font-size-default) / var(--semantic-line-height-default) var(--semantic-font-family-default);
+    --semantic-font-mono: var(--semantic-font-weight-default) var(--semantic-font-size-default) / var(--semantic-line-height-default) var(--semantic-font-family-mono);
+
+    // Spacing tokens
+    --semantic-spacing-page: 5rem;
 
     --page-spacing: 5rem;
     @media (max-width: 720px) {
         --page-spacing: 2rem;
     }
+}
+
+body:has([data-darkmode]:checked) {
+    color-scheme: dark;
+}
+
+body:has([data-darkmode]:not(:checked)) {
+    color-scheme: light;
 }

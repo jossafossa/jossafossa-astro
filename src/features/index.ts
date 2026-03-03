@@ -4,4 +4,3 @@ export * from "./PostsGrid";
 export * from "./AuthorsGrid";
 export * from "./AuthorsSection";
 export * from "./PostsSection";
-export * from "./BasePage";

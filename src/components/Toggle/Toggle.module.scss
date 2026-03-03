@@ -1,0 +1,48 @@
+.toggle {
+  position: absolute;
+  visibility: hidden;
+  + label {
+    --background: black;
+    --color: white;
+    --width: 3rem;
+    --height: 1.5rem;
+    --padding: 0.25rem;
+    --padding-x: var(--padding);
+    --padding-y: var(--padding);
+    --ball-size: calc(var(--height) - (var(--padding-y) * 2));
+    --ball-width: var(--ball-size);
+    --ball-height: var(--ball-size);
+    --radius: 1000px;
+    --ball-radius: calc(var(--radius) - var(--padding-x));
+    display: inline-flex;
+    align-items: center;
+    width: var(--width);
+    height: var(--height);
+    background: var(--background);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: 0.25s ease;
+
+    &:after {
+      content: "";
+      width: var(--ball-width);
+      height: var(--ball-height);
+      background: var(--color);
+      border-radius: var(--ball-radius);
+      margin-left: var(--padding-x);
+      transition: 0.25s ease;
+      transform: translateX(0);
+    }
+  }
+
+  &:checked + label {
+    background: var(--background-active, var(--background));
+
+    &:after {
+      background: var(--color-active, var(--color));
+      transform: translateX(
+        calc(var(--width) - var(--ball-width) - var(--padding-x) * 2)
+      );
+    }
+  }
+}

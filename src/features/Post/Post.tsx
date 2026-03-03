@@ -9,12 +9,17 @@ export const Post = async ({ post }: PostProps) => {
     ? await getEntry(post.data.author)
     : undefined;
 
+  const authorObject = author && {
+    name: author.data.name,
+    slug: author.data.slug,
+  };
+
   return (
     <CardPost
       title={post.data.title}
       date={post.data.date}
       href={`/posts/${post.data.slug}/`}
-      author={author}
+      author={authorObject}
       image={post.data.image}
     />
   );

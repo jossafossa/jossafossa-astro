@@ -1,4 +1,3 @@
-import { type CollectionEntry } from "astro:content";
 import type { ImageMetadata } from "astro";
 import styles from "./CardPost.module.scss";
 import { Link } from "../Link";
@@ -10,8 +9,13 @@ import { Image } from "../Image";
 import { Stack } from "../Stack";
 import { Paragraph } from "../Paragraph";
 
+type Author = {
+  name: string;
+  slug: string;
+};
+
 type CardPostProps = {
-  author?: CollectionEntry<"authors">;
+  author?: Author;
   title: string;
   date?: Date;
   href: string;
@@ -45,9 +49,7 @@ export const CardPost = ({
           {author && (
             <Paragraph>
               {"Author: "}
-              <Link href={`/authors/${author.data.slug}/`}>
-                {author.data.name}
-              </Link>
+              <Link href={`/authors/${author.slug}/`}>{author.name}</Link>
             </Paragraph>
           )}
         </Stack>

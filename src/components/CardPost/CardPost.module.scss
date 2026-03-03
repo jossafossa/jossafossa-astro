@@ -1,6 +1,8 @@
+@use "../../styles/functions" as fn;
+
 .cardPost {
     border-radius: 1rem;
     padding: 1rem;
-    background-color: var(--background-color-muted);
-    height:100%;
+    background-color: fn.get-variant(--semantic-color-background-muted);
+    height: 100%;
 }

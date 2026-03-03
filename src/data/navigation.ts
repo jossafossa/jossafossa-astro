@@ -5,8 +5,7 @@ export type NavigationItem = {
 
 export const navigation = {
   main: [
-    { href: "/", label: "Home" },
-    { href: "/posts/", label: "All Posts" },
+    { href: "/posts/", label: "Blog" },
     { href: "/authors/", label: "Authors" },
     { href: "/about/", label: "About" },
   ],

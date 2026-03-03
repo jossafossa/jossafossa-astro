@@ -1,10 +1,4 @@
-import {
-  Section,
-  Container,
-  Heading,
-  Stack,
-  Paragraph,
-} from "@/components";
+import { Section, Container, Heading, Stack, Paragraph } from "@/components";
 import { PostsGrid } from "../PostsGrid";
 
 type PostsSectionProps = {

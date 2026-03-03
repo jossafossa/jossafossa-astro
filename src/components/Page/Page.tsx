@@ -1,21 +1,14 @@
 import type { PropsWithChildren, ReactElement } from "react";
 import styles from "./Page.module.scss";
 
-type PageProps = {
-  header: ReactElement;
-  footer: ReactElement;
+const Main = ({ children }: PropsWithChildren) => {
+  return <main className={styles.main}>{children}</main>;
 };
 
-export const Page = ({
-  children,
-  header,
-  footer,
-}: PropsWithChildren<PageProps>) => {
-  return (
-    <div className={styles.page}>
-      {header}
-      <main className={styles.main}>{children}</main>
-      {footer}
-    </div>
-  );
+const Page = ({ children }: PropsWithChildren) => {
+  return <div className={styles.page}>{children}</div>;
 };
+
+Page.Main = Main;
+
+export { Page };

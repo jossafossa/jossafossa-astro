@@ -18,3 +18,5 @@ export * from "./Line";
 export * from "./Logo";
 export * from "./Page";
 export * from "./Image";
+export * from "./DarkModeToggle";
+export * from "./Toggle";

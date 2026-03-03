@@ -1,0 +1,22 @@
+@function get-variant($base-variable, $variant: "default") {
+  $light: $base-variable + "-light";
+  $dark: $base-variable + "-dark";
+
+  @if $variant == "light" {
+    @return var(#{$light});
+  }
+
+  @if $variant == "dark" {
+    @return var(#{$dark});
+  }
+
+  @if $variant == "default" {
+    @return light-dark(var(#{$light}), var(#{$dark}));
+  }
+
+  @if $variant == "inverted" {
+    @return light-dark(var(#{$dark}), var(#{$light}));
+  }
+
+  @error "Unknown variant: #{$variant}. Use 'default', 'inverted', 'light', or 'dark'.";
+}
