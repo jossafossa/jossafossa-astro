@@ -8,7 +8,11 @@ import {
   HtmlContent,
   Section,
   Stack,
+  Markdown,
+  Line,
 } from "@/components";
+import { AuthorSummary } from "@/features";
+import { fetchMarkdown } from "@/utils/markdown";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -20,29 +24,52 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+// Fetch markdown content if URL is provided
+let markdownContent: string | null = null;
+if (post.data.markdown_url) {
+  markdownContent = await fetchMarkdown(post.data.markdown_url);
+}
 ---
 
-<PostLayout title={post.data.title}>
+<PostLayout title={post.data.title} image={post.data.image}>
   <Section>
     <Container width="narrow">
       <Stack>
         <Heading level={1}>{post.data.title}</Heading>
 
-        {post.data.image && (
-          <Image
-            src={post.data.image}
-            alt={post.data.title}
-            width={1200}
-            height={600}
-            loading="eager"
-            style="width: 100%; height: auto; border-radius: 0.5rem;"
-          />
-        )}
+        {
+          post.data.image && (
+            <Image
+              src={post.data.image}
+              alt={post.data.title}
+              width={1200}
+              height={600}
+              loading="eager"
+              style="width: 100%; height: auto; border-radius: 0.5rem;"
+            />
+          )
+        }
 
         <HtmlContent>
           <Content />
         </HtmlContent>
+
+        {markdownContent && <Markdown content={markdownContent} />}
       </Stack>
     </Container>
+  </Section>
+
+  <Container>
+    <Line />
+  </Container>
+
+  <Section>
+    <Container width="narrow">
+      <Stack>
+        <AuthorSummary author={post.data.author} />
+      </Stack>
+    </Container>
+
   </Section>
 </PostLayout>

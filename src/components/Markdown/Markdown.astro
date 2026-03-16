@@ -1,0 +1,21 @@
+---
+import DOMPurify from 'isomorphic-dompurify';
+import { renderMarkdown } from "@/utils/markdown";
+import { HtmlContent } from '../HtmlContent';
+
+
+interface Props {
+  content: string;
+}
+
+const markdown = await renderMarkdown(Astro.props.content);
+
+// Configure DOMPurify to allow Shiki's syntax highlighting attributes
+const html = DOMPurify.sanitize(markdown, {
+  ADD_ATTR: ['style', 'tabindex', 'data-language'],
+  ADD_TAGS: ['span'],
+});
+
+---
+
+<HtmlContent set:html={html} />

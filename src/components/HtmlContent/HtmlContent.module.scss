@@ -1,3 +1,5 @@
+@use "../../styles/functions" as fn;
+
 .htmlContent {
     > *:nth-child(1) {
         margin-top: 0;
@@ -25,5 +27,42 @@
     > ul,
     > ol {
         margin-block:.5em;
+    }
+
+    > pre {
+        padding:1rem;
+        border-radius: .5rem;
+        margin-inline: -1rem;
+    }
+
+    > ul, > ul ul  {
+        list-style: none;
+        padding-left:1.5rem;
+
+        > li {
+            line-height: 1.5;
+            position:relative;
+            margin: .5rem;
+
+            &:before {
+                margin-top:-.1em;
+                content:"*";
+                font-size: 150%;
+                color: fn.get-variant(--semantic-color-primary);
+                position:absolute;
+                left:-1.5rem;
+            }
+        }
+    }
+
+    > blockquote {
+        margin:0;
+        margin-block: 1rem;
+        padding-left: 1rem;
+        border-left: .5rem solid fn.get-variant(--semantic-color-primary);
+    }
+
+    a {
+        color: inherit;
     }
 }

@@ -25,7 +25,9 @@
       "@/assets": ["./src/assets"],
       "@/assets/*": ["./src/assets/*"],
       "@/content": ["./src/content"],
-      "@/content/*": ["./src/content/*"]
+      "@/content/*": ["./src/content/*"],
+      "@/utils": ["./src/utils"],
+      "@/utils/*": ["./src/utils/*"]
     }
   }
 }

@@ -25,6 +25,7 @@ const postsCollection = defineCollection({
       draft: z.boolean().optional(),
       author: reference("authors").optional(),
       image: image().optional(),
+      markdown_url: z.string().url().optional(),
     }),
 });
 
