@@ -8,9 +8,7 @@ const authorsCollection = defineCollection({
     slug: z.string(),
     bio: z.string().optional(),
     avatar: z.string().optional(),
-    email: z.string().email().optional(),
     website: z.string().url().optional(),
-    twitter: z.string().optional(),
     github: z.string().optional(),
   }),
 });
@@ -26,6 +24,7 @@ const postsCollection = defineCollection({
       author: reference("authors").optional(),
       image: image().optional(),
       markdown_url: z.string().url().optional(),
+      tags: z.array(z.string()).optional(),
     }),
 });
 

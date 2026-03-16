@@ -6,6 +6,7 @@ email: jossafossa@example.com
 website: https://jossafossa.nl
 github: jossafossa
 twitter: jossafossa
+avatar: ../../assets/images/jossafossa.webp
 ---
 
 ## About me
