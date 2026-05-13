@@ -1,7 +1,5 @@
-@use "../../styles/functions" as fn;
-
 .logo {
-    color: fn.get-variant(--semantic-color-primary);
-    font: var(--semantic-font-mono);
+    color: var(--color-primary);
+    font: var(--font-mono);
     font-size: 1.5em;
 }

@@ -1,9 +1,6 @@
-@use "../../styles/functions" as fn;
-
-
 .body {
     margin: 0;
-    color: fn.get-variant(--semantic-color-text);
-    background-color: fn.get-variant(--semantic-color-background);
-    font: var(--semantic-font-default);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    font: var(--font-default);
 }

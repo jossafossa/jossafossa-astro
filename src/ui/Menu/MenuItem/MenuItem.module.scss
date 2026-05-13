@@ -1,6 +1,3 @@
-
-@use "../../../styles/functions" as fn;
-
 .active {
-    border-bottom: 2px solid fn.get-variant(--semantic-color-primary);
+    border-bottom: 2px solid var(--color-primary);
 }
