@@ -1,0 +1,27 @@
+---
+import Toggle from "../Toggle/Toggle.astro";
+---
+
+<Toggle data-darkmode aria-label="Toggle dark mode" />
+
+<script>
+  const input = document.querySelector<HTMLInputElement>("[data-darkmode]");
+  if (input) {
+    // Sync initial UI state with the theme set by the head init script.
+    input.checked = document.documentElement.dataset.theme === "dark";
+
+    input.addEventListener("change", () => {
+      const theme = input.checked ? "dark" : "light";
+      document.documentElement.dataset.theme = theme;
+      localStorage.setItem("theme", theme);
+    });
+
+    // React to system preference changes for users who haven't set a manual choice.
+    matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+      if (localStorage.getItem("theme") !== null) return;
+      const theme = e.matches ? "dark" : "light";
+      document.documentElement.dataset.theme = theme;
+      input.checked = e.matches;
+    });
+  }
+</script>

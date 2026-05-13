@@ -1,0 +1,11 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import styles from "./Toggle.module.scss";
+
+type Props = HTMLAttributes<"input">;
+
+const { id = `toggle-${crypto.randomUUID()}`, ...rest } = Astro.props;
+---
+
+<input type="checkbox" class={styles.toggle} id={id} {...rest} />
+<label for={id}></label>

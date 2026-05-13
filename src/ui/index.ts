@@ -4,6 +4,7 @@ export { default as Button } from "./Button/Button.astro";
 export { default as CardGrid } from "./CardGrid/CardGrid.astro";
 export { default as CardPost } from "./CardPost/CardPost.astro";
 export { default as Container } from "./Container/Container.astro";
+export { default as DarkModeToggle } from "./DarkModeToggle/DarkModeToggle.astro";
 export { default as DateView } from "./Date/Date.astro";
 export { default as Footer } from "./Footer/Footer.astro";
 export { default as Header } from "./Header/Header.astro";
@@ -21,6 +22,4 @@ export { default as Page } from "./Page/Page.astro";
 export { default as Paragraph } from "./Paragraph/Paragraph.astro";
 export { default as Section } from "./Section/Section.astro";
 export { default as Stack } from "./Stack/Stack.astro";
-
-export { DarkModeToggle } from "./DarkModeToggle/DarkModeToggle";
-export { Toggle } from "./Toggle/Toggle";
+export { default as Toggle } from "./Toggle/Toggle.astro";

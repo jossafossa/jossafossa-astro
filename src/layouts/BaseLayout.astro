@@ -14,6 +14,7 @@ import {
   Paragraph,
   DarkModeToggle,
 } from "@/ui";
+const themeInitScript = `(function(){var s=localStorage.getItem('theme');var d=s==='dark'||(s===null&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.dataset.theme=d?'dark':'light';})();`;
 import { navigation } from "@/data";
 interface Props {
   title: string;
@@ -31,6 +32,7 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script is:inline set:html={themeInitScript}></script>
   </head>
 
   <Body>
@@ -53,7 +55,7 @@ const { title } = Astro.props;
               ))}
             </Menu>
 
-            <DarkModeToggle client:load />
+            <DarkModeToggle />
           </Stack>
         </Stack>
       </Header>

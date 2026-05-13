@@ -79,10 +79,10 @@ $primitive-font-weight-bold: 700;
     }
 }
 
-body:has([data-darkmode]:checked) {
+html[data-theme="dark"] {
     color-scheme: dark;
 }
 
-body:has([data-darkmode]:not(:checked)) {
+html[data-theme="light"] {
     color-scheme: light;
 }
