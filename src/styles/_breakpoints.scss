@@ -1,0 +1,36 @@
+// Breakpoint tokens
+// -----------------
+// One source of truth for layout breakpoints. Used by both viewport
+// media queries (for global stuff like page padding) and container
+// queries (for components that adapt to their parent's width).
+
+$tablet: 1024px;
+$mobile: 720px;
+
+// Container name used by Container.astro. Any component inside a
+// <Container> can target this via the mixins below.
+$container: layout;
+
+// Viewport-based (for true page-level concerns)
+@mixin viewport-tablet-down {
+  @media (max-width: $tablet) {
+    @content;
+  }
+}
+@mixin viewport-mobile-down {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+// Container-based (for components that adapt to their slot width)
+@mixin tablet-down {
+  @container #{$container} (max-width: #{$tablet}) {
+    @content;
+  }
+}
+@mixin mobile-down {
+  @container #{$container} (max-width: #{$mobile}) {
+    @content;
+  }
+}
