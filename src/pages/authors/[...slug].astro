@@ -9,8 +9,8 @@ import {
   Link,
   Paragraph,
   HtmlContent,
-} from "@/components";
-import { PostsGrid } from "@/features";
+} from "@/ui";
+import { PostsGrid } from "@/containers";
 
 export async function getStaticPaths() {
   const authors = await getCollection("authors");

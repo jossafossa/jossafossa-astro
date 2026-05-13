@@ -1,5 +1,5 @@
 import { getEntry, type CollectionEntry } from "astro:content";
-import { CardPost } from "@/components";
+import { CardPost } from "@/ui";
 
 type PostProps = {
   post: CollectionEntry<"posts">;

@@ -1,19 +1,19 @@
-import { Container, Heading, Section, Stack, Paragraph } from "@/components";
-import { AuthorsGrid } from "../AuthorsGrid";
+import { Section, Container, Heading, Stack, Paragraph } from "@/ui";
+import { PostsGrid } from "../PostsGrid";
 
-type AuthorsSectionProps = {
+type PostsSectionProps = {
   title: string;
   description?: string;
 };
 
-export const AuthorsSection = ({ title, description }: AuthorsSectionProps) => {
+export const PostsSection = ({ title, description }: PostsSectionProps) => {
   return (
     <Section>
       <Container>
         <Stack>
           <Heading level={1}>{title}</Heading>
           {description && <Paragraph>{description}</Paragraph>}
-          <AuthorsGrid />
+          <PostsGrid />
         </Stack>
       </Container>
     </Section>

@@ -1,6 +1,6 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import { Post } from "../Post";
-import { CardGrid } from "@/components";
+import { CardGrid } from "@/ui";
 
 type PostsGridProps = {
   author?: CollectionEntry<"authors">;

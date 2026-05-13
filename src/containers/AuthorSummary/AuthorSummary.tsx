@@ -1,5 +1,5 @@
 import { getEntry, type ReferenceDataEntry } from "astro:content";
-import { Heading, Section, Stack } from "@/components";
+import { Heading, Section, Stack } from "@/ui";
 import { Author } from "../Author";
 
 type AuthorSummaryProps = {

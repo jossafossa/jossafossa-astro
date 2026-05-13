@@ -1,8 +1,8 @@
 ---
 import { getEntry } from "astro:content";
-import { Container, Heading, Paragraph, Section, Stack } from "@/components";
+import { Container, Heading, Paragraph, Section, Stack } from "@/ui";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { PostsGrid } from "@/features";
+import { PostsGrid } from "@/containers";
 
 const pageContent = await getEntry("pages", "home");
 if (!pageContent) {
