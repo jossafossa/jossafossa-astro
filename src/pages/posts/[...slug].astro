@@ -35,19 +35,21 @@ if (post.data.markdown_url) {
 <PostLayout title={post.data.title} image={post.data.image}>
   <Section>
     <Container width="narrow">
-      <Stack>
-        <Heading level={1}>{post.data.title}</Heading>
+      <Stack gap="large">
+        <Stack>
+          <Heading level={1}>{post.data.title}</Heading>
 
-        {
-          post.data.image && (
-            <Image
-              src={post.data.image}
-              alt={post.data.title}
-              ratio="wide"
-              loading="eager"
-            />
-          )
-        }
+          {
+            post.data.image && (
+              <Image
+                src={post.data.image}
+                alt={post.data.title}
+                ratio="wide"
+                loading="eager"
+              />
+            )
+          }
+        </Stack>
 
         <HtmlContent>
           <Content />

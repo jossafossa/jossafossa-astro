@@ -21,7 +21,7 @@ const { Content } = await render(page);
 <BaseLayout title={page.data.title}>
   <Section>
     <Container>
-      <Stack>
+      <Stack gap="large">
         <Heading level={1}>{page.data.title}</Heading>
 
         {page.data.description && (

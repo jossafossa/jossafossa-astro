@@ -36,25 +36,27 @@ const { title, date, href, author, image } = Astro.props;
         )
       }
 
-      <Heading level={2}>{title}</Heading>
+      <Stack gap="small">
+        <Heading level={2}>{title}</Heading>
 
-      {
-        date && (
-          <Paragraph>
-            {"Published: "}
-            <DateView date={date} />
-          </Paragraph>
-        )
-      }
+        {
+          date && (
+            <Paragraph>
+              {"Published: "}
+              <DateView date={date} />
+            </Paragraph>
+          )
+        }
 
-      {
-        author && (
-          <Paragraph>
-            {"Author: "}
-            <Link href={`/authors/${author.slug}/`}>{author.name}</Link>
-          </Paragraph>
-        )
-      }
+        {
+          author && (
+            <Paragraph>
+              {"Author: "}
+              <Link href={`/authors/${author.slug}/`}>{author.name}</Link>
+            </Paragraph>
+          )
+        }
+      </Stack>
     </Stack>
   </article>
 </BlockLink>

@@ -16,7 +16,7 @@ const { title, description } = Astro.props;
 
 <Section>
   <Container>
-    <Stack>
+    <Stack gap="large">
       <Heading level={1}>{title}</Heading>
       {description && <Paragraph>{description}</Paragraph>}
       <AuthorsGrid />
