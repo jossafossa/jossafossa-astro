@@ -3,6 +3,7 @@ title: React form hook test
 slug: react-form-hook-test
 date: 2024-01-01
 author: jossafossa
+image: ../../assets/images/react-hook-form.jpg
 markdown_url: https://raw.githubusercontent.com/jossafossa/react-hook-form-example/refs/heads/main/README.md
 ---
 

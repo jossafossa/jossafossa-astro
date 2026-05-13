@@ -1,11 +1,11 @@
 ---
 import { getCollection, render } from "astro:content";
-import { Image } from "astro:assets";
 import PostLayout from "@/layouts/PostLayout.astro";
 import {
   Container,
   Heading,
   HtmlContent,
+  Image,
   Section,
   Stack,
   Markdown,
@@ -43,10 +43,8 @@ if (post.data.markdown_url) {
             <Image
               src={post.data.image}
               alt={post.data.title}
-              width={1200}
-              height={600}
+              ratio="wide"
               loading="eager"
-              style="width: 100%; height: auto; border-radius: 0.5rem;"
             />
           )
         }

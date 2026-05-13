@@ -14,6 +14,11 @@ export default defineConfig({
       wrap: true,
     },
   },
+  image: {
+    layout: 'constrained',
+    responsiveStyles: true,
+    breakpoints: [160, 320, 640, 960, 1280, 1600, 2000, 3000],
+  },
   build: {
     format: 'directory',
     inlineStylesheets: 'auto',

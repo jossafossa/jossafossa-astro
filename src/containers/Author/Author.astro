@@ -15,6 +15,7 @@ const realAuthor = author ? await getEntry(author) : undefined;
     <CardPost
       title={realAuthor.data.name}
       href={`/authors/${realAuthor.data.slug}/`}
+      image={realAuthor.data.avatar}
     />
   )
 }

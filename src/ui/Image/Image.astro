@@ -1,19 +1,30 @@
 ---
+import { Picture } from "astro:assets";
 import styles from "./Image.module.scss";
 
 type Props = {
   src: ImageMetadata;
   alt: string;
-  ratio?: "normal" | "tall" | "square" | "wide";
+  ratio: "normal" | "tall" | "square" | "wide";
+  loading?: "lazy" | "eager";
+  layout?: "constrained" | "full-width" | "fixed";
 };
 
-const { src, alt, ratio = "normal" } = Astro.props;
+const { src, alt, ratio, loading = "lazy", layout = "constrained" } = Astro.props;
+
+// sizes="auto" measures the rendered (container) width — only valid with
+// loading="lazy". For eager images, let Astro auto-generate viewport-based sizes.
+const sizes = loading === "lazy" ? "auto" : undefined;
 ---
 
-{
-  src && (
-    <picture class:list={[styles.image, styles[ratio]]}>
-      <img src={src.src} alt={alt} />
-    </picture>
-  )
-}
+<div class:list={[styles.image, ratio && styles[ratio]]}>
+  <Picture
+    src={src}
+    alt={alt}
+    formats={["avif", "webp"]}
+    fallbackFormat="webp"
+    layout={layout}
+    sizes={sizes}
+    loading={loading}
+  />
+</div>
