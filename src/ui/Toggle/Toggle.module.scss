@@ -2,8 +2,8 @@
   position: absolute;
   visibility: hidden;
   + label {
-    --background: black;
-    --color: white;
+    --background: var(--color-text);
+    --color: var(--color-bg);
     --width: 3rem;
     --height: 1.5rem;
     --padding: 0.25rem;

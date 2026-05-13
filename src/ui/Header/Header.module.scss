@@ -8,8 +8,8 @@
 .inner {
   --padding: calc(var(--spacing-page) / 2);
   padding: 1rem max(var(--padding), 2rem);
-  background-color: var(--color-bg-emphasis);
-  color: var(--color-text-on-emphasis);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   margin-block: 1rem;
   border-radius: 100px;
   margin-inline: calc(-1 * var(--padding));

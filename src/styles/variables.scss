@@ -38,18 +38,13 @@ $font-weight-bold: 700;
 :root {
   color-scheme: light dark;
 
-  // Default surface
+  // Surface tokens. For an inverted surface (e.g. dark header in light mode)
+  // wrap the section in [data-surface="inverted"] — see rule below.
   --color-bg: light-dark(#{$grey-0}, #{$grey-900});
   --color-bg-muted: light-dark(#{$grey-100}, #{$grey-800});
   --color-text: light-dark(#{$grey-900}, #{$grey-0});
   --color-text-muted: light-dark(#{$grey-400}, #{$grey-500});
   --color-text-faded: light-dark(#{$grey-200}, #{$grey-700});
-
-  // Emphasis surface — inverts theme (e.g. dark header in light mode)
-  --color-bg-emphasis: light-dark(#{$grey-900}, #{$grey-0});
-  --color-text-on-emphasis: light-dark(#{$grey-0}, #{$grey-900});
-  --color-text-muted-on-emphasis: light-dark(#{$grey-500}, #{$grey-400});
-  --color-text-faded-on-emphasis: light-dark(#{$grey-700}, #{$grey-200});
 
   // Brand
   --color-primary: light-dark(#{$primary-500}, #{$primary-400});
@@ -78,5 +73,14 @@ html[data-theme="dark"] {
   color-scheme: dark;
 }
 html[data-theme="light"] {
+  color-scheme: light;
+}
+
+// Inverted surface: flips color-scheme so all light-dark() tokens inside
+// resolve to the opposite variant. Use on a wrapper to invert a whole region.
+[data-surface="inverted"] {
+  color-scheme: dark;
+}
+html[data-theme="dark"] [data-surface="inverted"] {
   color-scheme: light;
 }
