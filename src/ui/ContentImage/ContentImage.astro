@@ -1,14 +1,35 @@
 ---
+import Button from "../Button/Button.astro";
 import type { ImageProps } from "../Image/Image.astro";
 import Image from "../Image/Image.astro";
+import Stack from "../Stack/Stack.astro";
 import styles from "./ContentImage.module.scss";
 
-type Props = ImageProps;
+type Props = ImageProps & {
+  links?: {
+    type: string;
+    title: string;
+    url: string;
+  }[];
+};
 
-const imageProps = Astro.props;
+const { links, ...imageProps } = Astro.props;
 
 ---
 
 <div class={styles.contentImage}>
   <Image {...imageProps} />
+  {links && (
+    <div class={styles.links}>
+      <Stack horizontal gap="medium" align="center">
+        {links.map((link) => (
+          <Button href={link.url} target="_blank" title={link.title}>
+            {link.title}
+          </Button>
+        ))}
+      </Stack>
+      
+    </div>
+  )}
+  
 </div>

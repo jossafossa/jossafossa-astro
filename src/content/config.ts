@@ -14,6 +14,12 @@ const authorsCollection = defineCollection({
     }),
 });
 
+const link = z.object({
+  type: z.enum(["github"]),
+  title: z.string(),
+  url: z.string().url(),
+});
+
 const postsCollection = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/posts" }),
   schema: ({ image }) =>
@@ -26,6 +32,7 @@ const postsCollection = defineCollection({
       image: image().optional(),
       markdown_url: z.string().url().optional(),
       tags: z.array(z.string()).optional(),
+      links: z.array(link).optional(),
     }),
 });
 

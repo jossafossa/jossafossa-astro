@@ -3,4 +3,14 @@
   margin-inline: calc(-1 * var(--spacing));
   border-radius: 1rem;
   overflow: hidden;
+  position: relative;
+}
+
+.links {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: var(--spacing);
+  padding: 1rem var(--spacing);
 }

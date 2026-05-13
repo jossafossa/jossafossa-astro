@@ -5,6 +5,10 @@ date: 2024-01-01
 author: jossafossa
 image: ../../assets/images/react-hook-form.jpg
 markdown_url: https://raw.githubusercontent.com/jossafossa/react-hook-form-example/refs/heads/main/README.md
+links:
+  - type: github
+    title: view on Github
+    url: https://github.com/jossafossa/react-hook-form-example
 ---
 
 This is a test post to test the React form hook.
