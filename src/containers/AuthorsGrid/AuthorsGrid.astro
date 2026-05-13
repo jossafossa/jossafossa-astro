@@ -1,0 +1,11 @@
+---
+import { getCollection } from "astro:content";
+import CardGrid from "@/ui/CardGrid/CardGrid.astro";
+import Author from "../Author/Author.astro";
+
+const authors = await getCollection("authors");
+---
+
+<CardGrid>
+  {authors.map((author) => <Author author={author} />)}
+</CardGrid>

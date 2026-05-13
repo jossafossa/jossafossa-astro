@@ -1,0 +1,13 @@
+---
+import styles from "./Container.module.scss";
+
+type Props = {
+  width?: "wide" | "narrow";
+};
+
+const { width = "wide" } = Astro.props;
+---
+
+<div class:list={[styles.container, styles[width]]}>
+  <slot />
+</div>

@@ -1,0 +1,23 @@
+---
+import { getEntry, type CollectionEntry } from "astro:content";
+import CardPost from "@/ui/CardPost/CardPost.astro";
+
+type Props = {
+  post: CollectionEntry<"posts">;
+};
+
+const { post } = Astro.props;
+
+const author = post.data.author ? await getEntry(post.data.author) : undefined;
+const authorObject = author
+  ? { name: author.data.name, slug: author.data.slug }
+  : undefined;
+---
+
+<CardPost
+  title={post.data.title}
+  date={post.data.date}
+  href={`/posts/${post.data.slug}/`}
+  author={authorObject}
+  image={post.data.image}
+/>

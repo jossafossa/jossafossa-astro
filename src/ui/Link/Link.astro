@@ -1,0 +1,14 @@
+---
+import styles from "./Link.module.scss";
+
+type Props = {
+  href: string;
+  underlined?: boolean;
+};
+
+const { href, underlined = false } = Astro.props;
+---
+
+<a href={href} class:list={[styles.link, underlined && styles.underlined]}>
+  <slot />
+</a>

@@ -1,0 +1,24 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import CardGrid from "@/ui/CardGrid/CardGrid.astro";
+import Post from "../Post/Post.astro";
+
+type Props = {
+  author?: CollectionEntry<"authors">;
+};
+
+const { author } = Astro.props;
+
+const posts = (await getCollection("posts"))
+  .filter((post) => !post.data.draft)
+  .filter((post) => (author ? post.data.author?.id === author.id : true))
+  .sort((a, b) => {
+    const dateA = a.data.date || new Date(0);
+    const dateB = b.data.date || new Date(0);
+    return dateB.getTime() - dateA.getTime();
+  });
+---
+
+<CardGrid>
+  {posts.map((post) => <Post post={post} />)}
+</CardGrid>

@@ -1,0 +1,25 @@
+---
+import Container from "@/ui/Container/Container.astro";
+import Heading from "@/ui/Heading/Heading.astro";
+import Paragraph from "@/ui/Paragraph/Paragraph.astro";
+import Section from "@/ui/Section/Section.astro";
+import Stack from "@/ui/Stack/Stack.astro";
+import AuthorsGrid from "../AuthorsGrid/AuthorsGrid.astro";
+
+type Props = {
+  title: string;
+  description?: string;
+};
+
+const { title, description } = Astro.props;
+---
+
+<Section>
+  <Container>
+    <Stack>
+      <Heading level={1}>{title}</Heading>
+      {description && <Paragraph>{description}</Paragraph>}
+      <AuthorsGrid />
+    </Stack>
+  </Container>
+</Section>

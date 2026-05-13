@@ -1,0 +1,24 @@
+---
+import styles from "./Stack.module.scss";
+
+type Props = {
+  vertical?: true;
+  horizontal?: true;
+  align?: "start" | "center" | "end";
+  justify?: "start" | "center" | "end" | "space-between";
+};
+
+const { vertical, horizontal, align, justify } = Astro.props;
+---
+
+<div
+  class:list={[
+    styles.stack,
+    vertical && styles.vertical,
+    horizontal && styles.horizontal,
+    align && styles[`align-${align}`],
+    justify && styles[`justify-${justify}`],
+  ]}
+>
+  <slot />
+</div>

@@ -1,0 +1,19 @@
+---
+import styles from "./Image.module.scss";
+
+type Props = {
+  src: ImageMetadata;
+  alt: string;
+  ratio?: "normal" | "tall" | "square" | "wide";
+};
+
+const { src, alt, ratio = "normal" } = Astro.props;
+---
+
+{
+  src && (
+    <picture class:list={[styles.image, styles[ratio]]}>
+      <img src={src.src} alt={alt} />
+    </picture>
+  )
+}

@@ -1,0 +1,14 @@
+---
+import styles from "./BlockLink.module.scss";
+
+type Props = {
+  href: string;
+};
+
+const { href } = Astro.props;
+---
+
+<div class={styles.blockLink}>
+  <a href={href} class={styles.link}></a>
+  <slot />
+</div>

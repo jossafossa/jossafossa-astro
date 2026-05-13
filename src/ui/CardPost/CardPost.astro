@@ -1,0 +1,60 @@
+---
+import type { ImageMetadata } from "astro";
+import BlockLink from "../BlockLink/BlockLink.astro";
+import DateView from "../Date/Date.astro";
+import Heading from "../Heading/Heading.astro";
+import Image from "../Image/Image.astro";
+import Link from "../Link/Link.astro";
+import Paragraph from "../Paragraph/Paragraph.astro";
+import Stack from "../Stack/Stack.astro";
+import styles from "./CardPost.module.scss";
+
+type Author = {
+  name: string;
+  slug: string;
+};
+
+type Props = {
+  title: string;
+  date?: Date;
+  href: string;
+  author?: Author;
+  image?: ImageMetadata;
+};
+
+const { title, date, href, author, image } = Astro.props;
+---
+
+<BlockLink href={href}>
+  <article class={styles.cardPost}>
+    <Stack>
+      {
+        image && (
+          <header>
+            <Image src={image} alt={title} ratio="wide" />
+          </header>
+        )
+      }
+
+      <Heading level={2}>{title}</Heading>
+
+      {
+        date && (
+          <Paragraph>
+            {"Published: "}
+            <DateView date={date} />
+          </Paragraph>
+        )
+      }
+
+      {
+        author && (
+          <Paragraph>
+            {"Author: "}
+            <Link href={`/authors/${author.slug}/`}>{author.name}</Link>
+          </Paragraph>
+        )
+      }
+    </Stack>
+  </article>
+</BlockLink>

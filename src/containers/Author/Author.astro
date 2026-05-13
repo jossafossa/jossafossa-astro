@@ -1,0 +1,20 @@
+---
+import { getEntry, type ReferenceDataEntry } from "astro:content";
+import CardPost from "@/ui/CardPost/CardPost.astro";
+
+type Props = {
+  author: ReferenceDataEntry<"authors">;
+};
+
+const { author } = Astro.props;
+const realAuthor = author ? await getEntry(author) : undefined;
+---
+
+{
+  realAuthor && (
+    <CardPost
+      title={realAuthor.data.name}
+      href={`/authors/${realAuthor.data.slug}/`}
+    />
+  )
+}

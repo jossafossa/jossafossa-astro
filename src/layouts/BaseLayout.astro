@@ -1,16 +1,19 @@
 ---
 
-import { Body,
+import {
+  Body,
   Page,
+  Main,
   Header,
   Footer,
   Stack,
   BlockLink,
   Logo,
   Menu,
+  MenuItem,
   Paragraph,
   DarkModeToggle,
- } from "@/ui";
+} from "@/ui";
 import { navigation } from "@/data";
 interface Props {
   title: string;
@@ -41,12 +44,12 @@ const { title } = Astro.props;
           <Stack horizontal align="center">
             <Menu>
               {navigation.main.map((item) => (
-                <Menu.Item
+                <MenuItem
                   href={item.href}
                   active={item.href === Astro.url.pathname}
                 >
                   {item.label}
-                </Menu.Item>
+                </MenuItem>
               ))}
             </Menu>
 
@@ -54,9 +57,9 @@ const { title } = Astro.props;
           </Stack>
         </Stack>
       </Header>
-      <Page.Main>
+      <Main>
         <slot />
-      </Page.Main>
+      </Main>
       <Footer>
         <Stack horizontal justify="space-between" align="center">
           <Paragraph>&copy; {new Date().getFullYear()} My Blog</Paragraph>
