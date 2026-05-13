@@ -1,7 +1,16 @@
 .footer {
-    background-color:black;
-    color:white;
-    padding-block: 1rem;
+  width: 100%;
+}
 
-
+.inner {
+  --padding: calc(var(--spacing-page) / 2);
+  padding: 1rem max(var(--padding), 2rem);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin-block: 1rem;
+  border-radius: 2rem;
+  margin-inline: calc(-1 * var(--padding));
+  height: 4rem;
+  display: grid;
+  align-content: center;
 }

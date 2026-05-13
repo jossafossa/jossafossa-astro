@@ -3,8 +3,10 @@ import Container from "../Container/Container.astro";
 import styles from "./Footer.module.scss";
 ---
 
-<footer class={styles.footer}>
+<div class={styles.footer}>
   <Container>
-    <slot />
+    <footer class={styles.inner} data-surface="inverted">
+      <slot />
+    </footer>
   </Container>
-</footer>
+</div>

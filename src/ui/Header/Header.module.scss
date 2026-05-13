@@ -2,7 +2,7 @@
   width: 100%;
   position: sticky;
   top: 0;
-  z-index:1;
+  z-index: 1;
 }
 
 .inner {
@@ -11,6 +11,9 @@
   background-color: var(--color-bg);
   color: var(--color-text);
   margin-block: 1rem;
-  border-radius: 100px;
+  border-radius: 2rem;
   margin-inline: calc(-1 * var(--padding));
+  height: 4rem;
+  display: grid;
+  align-content: center;
 }
