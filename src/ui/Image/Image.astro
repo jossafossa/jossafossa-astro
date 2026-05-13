@@ -2,13 +2,16 @@
 import { Picture } from "astro:assets";
 import styles from "./Image.module.scss";
 
-type Props = {
+
+export type ImageProps = {
   src: ImageMetadata;
   alt: string;
   ratio: "normal" | "tall" | "square" | "wide";
   loading?: "lazy" | "eager";
   layout?: "constrained" | "full-width" | "fixed";
 };
+
+type Props = ImageProps;
 
 const { src, alt, ratio, loading = "lazy", layout = "constrained" } = Astro.props;
 

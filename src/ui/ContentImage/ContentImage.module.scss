@@ -1,0 +1,6 @@
+.contentImage {
+  --spacing: calc(var(--spacing-page) / 2);
+  margin-inline: calc(-1 * var(--spacing));
+  border-radius: 1rem;
+  overflow: hidden;
+}

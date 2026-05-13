@@ -1,0 +1,14 @@
+---
+import type { ImageProps } from "../Image/Image.astro";
+import Image from "../Image/Image.astro";
+import styles from "./ContentImage.module.scss";
+
+type Props = ImageProps;
+
+const imageProps = Astro.props;
+
+---
+
+<div class={styles.contentImage}>
+  <Image {...imageProps} />
+</div>

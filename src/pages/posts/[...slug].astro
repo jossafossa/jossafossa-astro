@@ -10,6 +10,7 @@ import {
   Stack,
   Markdown,
   Line,
+ContentImage,
 } from "@/ui";
 import { AuthorSummary } from "@/containers";
 import { fetchMarkdown } from "@/utils/markdown";
@@ -41,7 +42,7 @@ if (post.data.markdown_url) {
 
           {
             post.data.image && (
-              <Image
+              <ContentImage
                 src={post.data.image}
                 alt={post.data.title}
                 ratio="wide"
