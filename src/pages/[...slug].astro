@@ -1,7 +1,7 @@
 ---
 import { render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { Container, Heading, Paragraph, Section, Stack, HtmlContent, Line } from "@/ui";
+import { Container, Heading, Paragraph, Section, Stack, Line, MdxContent } from "@/ui";
 import { getVisibleCollection } from "@/utils/content";
 
 export async function getStaticPaths() {
@@ -10,7 +10,7 @@ export async function getStaticPaths() {
   );
 
   return genericPages.map((page) => ({
-    params: { slug: page.id.replace("generic/", "").replace(".md", "") },
+    params: { slug: page.id.replace("generic/", "").replace(/\.mdx?$/, "") },
     props: { page },
   }));
 }
@@ -31,9 +31,7 @@ const { Content } = await render(page);
 
         <Line />
 
-        <HtmlContent>
-          <Content />
-        </HtmlContent>
+        <MdxContent content={Content} />
       </Stack>
     </Container>
   </Section>

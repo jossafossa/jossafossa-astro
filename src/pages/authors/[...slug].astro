@@ -8,7 +8,7 @@ import {
   Stack,
   Link,
   Paragraph,
-  HtmlContent,
+  MdxContent,
 } from "@/ui";
 import { PostsGrid } from "@/containers";
 import { getVisibleCollection } from "@/utils/content";
@@ -59,9 +59,7 @@ const { Content } = await render(author);
             )
           }
 
-          <HtmlContent>
-            <Content />
-          </HtmlContent>
+          <MdxContent content={Content} />
         </Stack>
 
         <Stack>

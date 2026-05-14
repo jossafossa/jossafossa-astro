@@ -5,7 +5,8 @@ import Image from "../Image/Image.astro";
 import Stack from "../Stack/Stack.astro";
 import styles from "./ContentImage.module.scss";
 
-type Props = ImageProps & {
+type Props = Omit<ImageProps, "ratio"> & {
+  ratio?: ImageProps["ratio"];
   links?: {
     type: string;
     title: string;
@@ -13,12 +14,11 @@ type Props = ImageProps & {
   }[];
 };
 
-const { links, ...imageProps } = Astro.props;
-
+const { links, ratio = "wide", ...imageProps } = Astro.props;
 ---
 
 <div class={styles.contentImage}>
-  <Image {...imageProps} />
+  <Image {...imageProps} ratio={ratio} />
   {links && (
     <div class={styles.links}>
       <Stack horizontal gap="medium" align="center">
@@ -28,8 +28,6 @@ const { links, ...imageProps } = Astro.props;
           </Button>
         ))}
       </Stack>
-      
     </div>
   )}
-  
 </div>

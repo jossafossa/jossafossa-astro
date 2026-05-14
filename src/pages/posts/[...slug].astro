@@ -5,13 +5,13 @@ import PostLayout from "@/layouts/PostLayout.astro";
 import {
   Container,
   Heading,
-  HtmlContent,
   Image,
   Section,
   Stack,
   Markdown,
   Line,
-ContentImage,
+  ContentImage,
+  MdxContent,
 } from "@/ui";
 import { AuthorSummary } from "@/containers";
 import { fetchMarkdown } from "@/utils/markdown";
@@ -54,9 +54,7 @@ if (post.data.markdown_url) {
           }
         </Stack>
 
-        <HtmlContent>
-          <Content />
-        </HtmlContent>
+        <MdxContent content={Content} />
 
         {markdownContent && <Markdown content={markdownContent} />}
       </Stack>

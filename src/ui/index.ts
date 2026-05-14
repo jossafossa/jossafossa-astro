@@ -17,6 +17,7 @@ export { default as Link } from "./Link/Link.astro";
 export { default as Logo } from "./Logo/Logo.astro";
 export { default as Main } from "./Page/Main.astro";
 export { default as Markdown } from "./Markdown/Markdown.astro";
+export { default as MdxContent } from "./MdxContent/MdxContent.astro";
 export { default as Menu } from "./Menu/Menu.astro";
 export { default as MenuItem } from "./Menu/MenuItem/MenuItem.astro";
 export { default as Page } from "./Page/Page.astro";

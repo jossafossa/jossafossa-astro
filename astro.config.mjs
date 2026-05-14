@@ -1,9 +1,11 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
 
 export const shikiTheme = 'github-dark';
 
 export default defineConfig({
+  integrations: [mdx()],
   compressHTML: process.env.COMPRESS !== 'false',
   markdown: {
     shikiConfig: {

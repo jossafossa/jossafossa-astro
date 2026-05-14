@@ -1,0 +1,15 @@
+---
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+import HtmlContent from "../HtmlContent/HtmlContent.astro";
+import { mdxComponents } from "./components";
+
+type Props = {
+  content: AstroComponentFactory;
+};
+
+const { content: Content } = Astro.props;
+---
+
+<HtmlContent>
+  <Content components={mdxComponents} />
+</HtmlContent>
