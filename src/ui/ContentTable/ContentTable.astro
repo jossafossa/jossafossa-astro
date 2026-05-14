@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import styles from "./ContentTable.module.scss";
+
+// Props mirror everything you can put on a native <table>. MDX passes through
+// whatever attributes were on the source element (in practice almost always
+// empty for markdown tables, but typed for completeness).
+type Props = HTMLAttributes<"table">;
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<div class={styles.scroll}>
+  <table {...rest} class:list={[styles.table, className]}>
+    <slot />
+  </table>
+</div>

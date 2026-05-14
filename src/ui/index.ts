@@ -26,3 +26,4 @@ export { default as Section } from "./Section/Section.astro";
 export { default as Stack } from "./Stack/Stack.astro";
 export { default as Toggle } from "./Toggle/Toggle.astro";
 export { default as ContentImage } from "./ContentImage/ContentImage.astro";
+export { default as ContentTable } from "./ContentTable/ContentTable.astro";
