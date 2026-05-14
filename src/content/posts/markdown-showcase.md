@@ -1,0 +1,134 @@
+---
+title: "Markdown showcase: every element on one page"
+slug: markdown-showcase
+date: 2026-05-10
+author: jossafossa
+image: ../../assets/images/astro-hero.jpg
+tags:
+  - markdown
+  - typography
+  - testing
+---
+
+This post exists to stress-test the HtmlContent component. It contains every common markdown construct so you can see how each renders without hunting through real content.
+
+## Headings cascade
+
+You can use up to six levels, though in practice anything beyond three signals that the structure needs rethinking.
+
+### A third-level heading
+
+#### A fourth-level heading
+
+##### A fifth-level heading
+
+###### A sixth-level heading
+
+## Inline formatting
+
+Some words deserve **bold emphasis**, others just a touch of *italic*. Occasionally you want both: ***bold and italic***. For technical terms there's `inline code`, and for deleted thoughts there's ~~strikethrough~~. Links like [this one to Astro](https://astro.build) should stand out clearly from body text.
+
+## Blockquotes
+
+> The best code is no code at all. Every new line of code you willingly bring into the world is code that has to be debugged, code that has to be read and understood, code that has to be supported.
+>
+> — Jeff Atwood
+
+Nested quotes work too:
+
+> First level.
+>
+> > Second level — used rarely but it should still look acceptable.
+
+## Lists
+
+Unordered, with nesting:
+
+- First item
+- Second item with a longer line of text that should wrap naturally and not look cramped against the bullet marker
+  - Nested item
+  - Another nested item
+    - Three levels deep, which is usually too deep
+- Back to top level
+
+Ordered:
+
+1. Read the brief
+2. Sketch the approach
+3. Build the smallest version that proves the idea
+4. Iterate
+
+## Code blocks
+
+Inline `const x = 42` is fine for short snippets. Full blocks need syntax highlighting:
+
+```ts
+type User = {
+  id: string;
+  name: string;
+  email: string;
+};
+
+async function fetchUser(id: string): Promise<User> {
+  const response = await fetch(`/api/users/${id}`);
+  if (!response.ok) {
+    throw new Error(`Failed: ${response.status}`);
+  }
+  return response.json();
+}
+```
+
+```scss
+.card {
+  display: grid;
+  gap: 1rem;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+```
+
+```bash
+npm install
+npm run dev
+```
+
+## Inline images
+
+A single image with alt text — Astro optimizes this through the same `astro:assets` pipeline as the hero:
+
+![Astro logo on a dark background](../../assets/images/astro-hero.jpg)
+
+An image followed immediately by a paragraph, to test vertical rhythm:
+
+![A close-up of a React hook form](../../assets/images/react-hook-form.jpg)
+
+The paragraph right after should sit at a comfortable distance below the image — neither pasted against it nor floating in a void.
+
+An image wrapped in a link, so clicking it opens the source:
+
+[![Post hero illustration](../../assets/images/post-1.jpg)](https://astro.build)
+
+## Tables
+
+| Framework | Renders on | Hydration |
+|-----------|------------|-----------|
+| Astro     | Server     | Opt-in    |
+| Next.js   | Both       | Default   |
+| Remix     | Server     | Default   |
+| SvelteKit | Both       | Default   |
+
+## Horizontal rule
+
+Sometimes you need a clean break between sections:
+
+---
+
+After the rule, the next paragraph should feel like a new beat.
+
+## Long paragraphs
+
+This paragraph exists to test how body text wraps at the chosen line length. Comfortable reading lines hover around 60-75 characters; anything significantly wider becomes harder to scan because the eye loses its place when jumping back to the next line. Typography is one of those quiet design decisions that nobody notices when it works and everybody notices when it doesn't.
+
+A second paragraph immediately after, to test the vertical rhythm between blocks. Spacing between paragraphs should feel intentional — neither cramped nor disconnected.

@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from "astro:content";
+import { render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import {
   Container,
@@ -11,9 +11,10 @@ import {
   HtmlContent,
 } from "@/ui";
 import { PostsGrid } from "@/containers";
+import { getVisibleCollection } from "@/utils/content";
 
 export async function getStaticPaths() {
-  const authors = await getCollection("authors");
+  const authors = await getVisibleCollection("authors");
   return authors.map((author) => ({
     params: { slug: author.data.slug },
     props: { author },

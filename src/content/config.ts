@@ -11,6 +11,7 @@ const authorsCollection = defineCollection({
       avatar: image().optional(),
       website: z.string().url().optional(),
       github: z.string().optional(),
+      draft: z.boolean().optional(),
     }),
 });
 
@@ -49,6 +50,7 @@ const pagesCollection = defineCollection({
         }),
       )
       .optional(),
+    draft: z.boolean().optional(),
   }),
 });
 

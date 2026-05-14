@@ -1,6 +1,7 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
+import { type CollectionEntry } from "astro:content";
 import CardGrid from "@/ui/CardGrid/CardGrid.astro";
+import { getVisibleCollection } from "@/utils/content";
 import Post from "../Post/Post.astro";
 
 type Props = {
@@ -9,8 +10,7 @@ type Props = {
 
 const { author } = Astro.props;
 
-const posts = (await getCollection("posts"))
-  .filter((post) => !post.data.draft)
+const posts = (await getVisibleCollection("posts"))
   .filter((post) => (author ? post.data.author?.id === author.id : true))
   .sort((a, b) => {
     const dateA = a.data.date || new Date(0);

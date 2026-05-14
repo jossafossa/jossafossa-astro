@@ -1,9 +1,9 @@
 ---
-import { getCollection } from "astro:content";
 import CardGrid from "@/ui/CardGrid/CardGrid.astro";
+import { getVisibleCollection } from "@/utils/content";
 import Author from "../Author/Author.astro";
 
-const authors = await getCollection("authors");
+const authors = await getVisibleCollection("authors");
 ---
 
 <CardGrid>
