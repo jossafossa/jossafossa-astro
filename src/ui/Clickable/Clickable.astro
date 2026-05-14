@@ -1,0 +1,23 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import styles from "./Clickable.module.scss";
+
+type Props =
+  | (HTMLAttributes<"a"> & { href: string })
+  | (HTMLAttributes<"button"> & { href?: never });
+
+const { class: className, ...rest } = Astro.props;
+const isLink = "href" in rest && rest.href;
+---
+
+{
+  isLink ? (
+    <a {...rest} class:list={[styles.clickable, className]}>
+      <slot />
+    </a>
+  ) : (
+    <button type="button" {...rest} class:list={[styles.clickable, className]}>
+      <slot />
+    </button>
+  )
+}

@@ -3,6 +3,7 @@ export { default as Body } from "./Body/Body.astro";
 export { default as Button } from "./Button/Button.astro";
 export { default as CardGrid } from "./CardGrid/CardGrid.astro";
 export { default as CardPost } from "./CardPost/CardPost.astro";
+export { default as Clickable } from "./Clickable/Clickable.astro";
 export { default as Container } from "./Container/Container.astro";
 export { default as DarkModeToggle } from "./DarkModeToggle/DarkModeToggle.astro";
 export { default as DateView } from "./Date/Date.astro";
