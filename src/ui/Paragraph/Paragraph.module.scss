@@ -1,4 +1,16 @@
 .paragraph {
-    margin:0;
-    line-height: 1.5;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.muted {
+  color: var(--color-text-muted);
+}
+
+.small {
+  font-size: var(--font-size-small);
+}
+
+.large {
+  font-size: var(--font-size-large);
 }

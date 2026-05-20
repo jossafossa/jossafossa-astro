@@ -1,7 +1,15 @@
 ---
 import styles from "./Paragraph.module.scss";
+
+type Props = {
+  variant?: "normal" | "muted";
+  size?: "small" | "default" | "large";
+};
+
+const { variant = "normal", size = "default" } = Astro.props;
+
 ---
 
-<p class={styles.paragraph}>
+<p class:list={[styles.paragraph, styles[variant], styles[size]]}>
   <slot />
 </p>
