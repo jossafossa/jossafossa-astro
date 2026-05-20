@@ -1,5 +1,6 @@
 ---
 import Button from "../Button/Button.astro";
+import Icon from "../Icon/Icon.astro";
 import type { ImageProps } from "../Image/Image.astro";
 import Image from "../Image/Image.astro";
 import Stack from "../Stack/Stack.astro";
@@ -8,8 +9,8 @@ import styles from "./ContentImage.module.scss";
 type Props = Omit<ImageProps, "ratio"> & {
   ratio?: ImageProps["ratio"];
   links?: {
-    type: string;
-    title: string;
+    title?: string;
+    icon?: string;
     url: string;
   }[];
 };
@@ -20,11 +21,16 @@ const { links, ratio = "wide", ...imageProps } = Astro.props;
 <div class={styles.contentImage}>
   <Image {...imageProps} ratio={ratio} />
   {links && (
-    <div class={styles.links}>
+    <div class={styles.links} data-surface="inverted">
       <Stack horizontal gap="medium" align="center">
         {links.map((link) => (
-          <Button href={link.url} target="_blank" title={link.title}>
-            {link.title}
+          <Button
+            href={link.url}
+            target="_blank"
+            title={link.title}
+          >
+            {link.icon && <Icon size={24} name={link.icon as `${"solid" | "brands"}:${string}`} />}
+            {!link.icon && link.title}
           </Button>
         ))}
       </Stack>

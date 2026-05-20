@@ -16,8 +16,8 @@ const authorsCollection = defineCollection({
 });
 
 const link = z.object({
-  type: z.enum(["github"]),
-  title: z.string(),
+  title: z.string().optional(),
+  icon: z.string().optional(),
   url: z.string().url(),
 });
 
