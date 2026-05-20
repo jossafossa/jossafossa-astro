@@ -1,7 +1,15 @@
 ---
 import { render } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { Container, Heading, Paragraph, Section, Stack, Line, MdxContent } from "@/ui";
+import {
+  Container,
+  Heading,
+  Paragraph,
+  Section,
+  Stack,
+  Line,
+  MdxContent,
+} from "@/ui";
 import { getVisibleCollection } from "@/utils/content";
 
 export async function getStaticPaths() {
@@ -25,9 +33,11 @@ const { Content } = await render(page);
       <Stack gap="large">
         <Heading level={1}>{page.data.title}</Heading>
 
-        {page.data.description && (
-          <Paragraph>{page.data.description}</Paragraph>
-        )}
+        {
+          page.data.description && (
+            <Paragraph>{page.data.description}</Paragraph>
+          )
+        }
 
         <Line />
 
@@ -36,4 +46,3 @@ const { Content } = await render(page);
     </Container>
   </Section>
 </BaseLayout>
-

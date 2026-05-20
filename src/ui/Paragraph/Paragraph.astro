@@ -7,7 +7,6 @@ type Props = {
 };
 
 const { variant = "normal", size = "default" } = Astro.props;
-
 ---
 
 <p class:list={[styles.paragraph, styles[variant], styles[size]]}>

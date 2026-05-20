@@ -1,66 +1,66 @@
 .htmlContent {
-    > *:nth-child(1) {
-        margin-top: 0;
+  > *:nth-child(1) {
+    margin-top: 0;
+  }
+
+  > *:nth-last-child(1) {
+    margin-bottom: 0;
+  }
+
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    margin: 0;
+    margin-top: 2em;
+  }
+
+  > p {
+    margin-block: 0.5em;
+  }
+
+  > ul,
+  > ol {
+    margin-block: 0.5em;
+  }
+
+  > pre {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-inline: -1rem;
+  }
+
+  > ul,
+  > ul ul {
+    list-style: none;
+    padding-left: 1.5rem;
+
+    > li {
+      line-height: 1.5;
+      position: relative;
+      margin: 0.5rem;
+
+      &:before {
+        margin-top: -0.1em;
+        content: "*";
+        font-size: 150%;
+        color: var(--color-primary);
+        position: absolute;
+        left: -1.5rem;
+      }
     }
+  }
 
-    > *:nth-last-child(1) {
-        margin-bottom: 0;
-    }
+  > blockquote {
+    margin: 0;
+    margin-block: 1rem;
+    padding-left: 1rem;
+    border-left: 0.5rem solid var(--color-primary);
+  }
 
-    > h1,
-    > h2,
-    > h3,
-    > h4,
-    > h5,
-    > h6 {
-        margin:0;
-        margin-top:2em;
-    }
-
-    > p {
-        margin-block:.5em;
-
-    }
-
-    > ul,
-    > ol {
-        margin-block:.5em;
-    }
-
-    > pre {
-        padding:1rem;
-        border-radius: .5rem;
-        margin-inline: -1rem;
-    }
-
-    > ul, > ul ul  {
-        list-style: none;
-        padding-left:1.5rem;
-
-        > li {
-            line-height: 1.5;
-            position:relative;
-            margin: .5rem;
-
-            &:before {
-                margin-top:-.1em;
-                content:"*";
-                font-size: 150%;
-                color: var(--color-primary);
-                position:absolute;
-                left:-1.5rem;
-            }
-        }
-    }
-
-    > blockquote {
-        margin:0;
-        margin-block: 1rem;
-        padding-left: 1rem;
-        border-left: .5rem solid var(--color-primary);
-    }
-
-    a {
-        color: inherit;
-    }
+  a {
+    color: inherit;
+  }
 }

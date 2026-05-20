@@ -20,20 +20,23 @@ const { links, ratio = "wide", ...imageProps } = Astro.props;
 
 <div class={styles.contentImage}>
   <Image {...imageProps} ratio={ratio} />
-  {links && (
-    <div class={styles.links} data-surface="inverted">
-      <Stack horizontal gap="medium" align="center">
-        {links.map((link) => (
-          <Button
-            href={link.url}
-            target="_blank"
-            title={link.title}
-          >
-            {link.icon && <Icon size={24} name={link.icon as `${"solid" | "brands"}:${string}`} />}
-            {!link.icon && link.title}
-          </Button>
-        ))}
-      </Stack>
-    </div>
-  )}
+  {
+    links && (
+      <div class={styles.links} data-surface="inverted">
+        <Stack horizontal gap="medium" align="center">
+          {links.map((link) => (
+            <Button href={link.url} target="_blank" title={link.title}>
+              {link.icon && (
+                <Icon
+                  size={24}
+                  name={link.icon as `${"solid" | "brands"}:${string}`}
+                />
+              )}
+              {!link.icon && link.title}
+            </Button>
+          ))}
+        </Stack>
+      </div>
+    )
+  }
 </div>

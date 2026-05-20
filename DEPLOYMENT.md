@@ -46,16 +46,17 @@ chmod 600 ~/.ssh/authorized_keys
 ### 3. Add Secrets to GitHub
 
 Go to your GitHub repository:
+
 - Settings → Secrets and variables → Actions → New repository secret
 
 Add these secrets:
 
-| Secret Name | Value | Example |
-|-------------|-------|---------|
-| `DEPLOY_HOST` | Your server hostname/IP | `example.com` or `123.45.67.89` |
-| `DEPLOY_USER` | SSH username | `username` |
-| `DEPLOY_PATH` | Path on server | `/var/www/html/` or `/home/user/public_html/` |
-| `DEPLOY_KEY` | Private SSH key | Contents of `~/.ssh/deploy_key` |
+| Secret Name   | Value                   | Example                                       |
+| ------------- | ----------------------- | --------------------------------------------- |
+| `DEPLOY_HOST` | Your server hostname/IP | `example.com` or `123.45.67.89`               |
+| `DEPLOY_USER` | SSH username            | `username`                                    |
+| `DEPLOY_PATH` | Path on server          | `/var/www/html/` or `/home/user/public_html/` |
+| `DEPLOY_KEY`  | Private SSH key         | Contents of `~/.ssh/deploy_key`               |
 
 **To get the private key:**
 
@@ -127,6 +128,7 @@ production  → Auto-deploy to server 🚀
 ```
 
 **Development:**
+
 ```bash
 git checkout main
 # Make changes
@@ -136,6 +138,7 @@ git push origin main
 ```
 
 **Deploy to production:**
+
 ```bash
 git checkout production
 git merge main
@@ -189,12 +192,13 @@ rsync -avzr --delete dist/ user@server:/var/www/html/
 ## Environment-Specific Builds
 
 **Production build:**
+
 ```bash
 npm run build
 ```
 
 **Debug build (readable HTML):**
+
 ```bash
 npm run build:debug
 ```
-

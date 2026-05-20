@@ -1,14 +1,14 @@
 .link {
-    color: inherit;
-    text-decoration: none;
-    &:hover {
-        text-decoration: underline;
-    }
+  color: inherit;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .underlined {
-    text-decoration: underline;
-    &:hover {
-        text-decoration: none;
-    }
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
 }

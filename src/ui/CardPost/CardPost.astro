@@ -40,31 +40,31 @@ const { title, date, href, author, image, tags } = Astro.props;
 
       <Stack gap="medium">
         <Stack gap="none">
-
           {
             tags && tags.length > 0 && (
               <div>
-                <Paragraph size="small" variant="muted">{tags.join(" | ").toUpperCase()}</Paragraph>
-            </div>
-          )
-        }
-        <Heading level={2} appearance={3} >{title}</Heading>
-      </Stack>
+                <Paragraph size="small" variant="muted">
+                  {tags.join(" | ").toUpperCase()}
+                </Paragraph>
+              </div>
+            )
+          }
+          <Heading level={2} appearance={3}>{title}</Heading>
+        </Stack>
 
-      <Stack gap="none">
+        <Stack gap="none">
+          {
+            author && (
+              <Paragraph>
+                {"By "}
+                <Link href={`/authors/${author.slug}/`}>{author.name}</Link>
+              </Paragraph>
+            )
+          }
 
-        {
-          author && (
-            <Paragraph>
-              {"By "}
-              <Link href={`/authors/${author.slug}/`}>{author.name}</Link>
-            </Paragraph>
-          )
-        }
-
-  {
-    date && (
-      <Paragraph size="small" variant="muted">
+          {
+            date && (
+              <Paragraph size="small" variant="muted">
                 {"Published: "}
                 <DateView date={date} />
               </Paragraph>

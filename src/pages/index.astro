@@ -16,9 +16,11 @@ if (!pageContent) {
       <Stack gap="large">
         <Heading level={1}>{pageContent.data.title}</Heading>
 
-        {pageContent.data.description && (
-          <Paragraph>{pageContent.data.description}</Paragraph>
-        )}
+        {
+          pageContent.data.description && (
+            <Paragraph>{pageContent.data.description}</Paragraph>
+          )
+        }
 
         <PostsGrid />
       </Stack>

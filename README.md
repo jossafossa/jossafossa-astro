@@ -68,14 +68,14 @@ A modern blog built with Astro 5, featuring optimized builds and automated deplo
 
 All commands are run from the root of the project:
 
-| Command               | Action                                              |
-| :-------------------- | :-------------------------------------------------- |
-| `npm install`         | Install dependencies                                |
-| `npm run dev`         | Start dev server at `localhost:4321`                |
-| `npm run build`       | Build production site to `./dist/` (compressed)     |
-| `npm run build:debug` | Build with readable HTML (for debugging)            |
-| `npm run preview`     | Preview your build locally, before deploying        |
-| `npm run astro ...`   | Run CLI commands like `astro add`, `astro check`    |
+| Command               | Action                                           |
+| :-------------------- | :----------------------------------------------- |
+| `npm install`         | Install dependencies                             |
+| `npm run dev`         | Start dev server at `localhost:4321`             |
+| `npm run build`       | Build production site to `./dist/` (compressed)  |
+| `npm run build:debug` | Build with readable HTML (for debugging)         |
+| `npm run preview`     | Preview your build locally, before deploying     |
+| `npm run astro ...`   | Run CLI commands like `astro add`, `astro check` |
 
 ## 📝 Adding a New Blog Post
 
@@ -87,7 +87,7 @@ All commands are run from the root of the project:
 title: My New Post
 date: 2024-02-25
 author: jossafossa # Optional: reference to an author
-draft: false       # Optional: set to true to hide from production
+draft: false # Optional: set to true to hide from production
 ---
 
 ## Content
@@ -142,11 +142,9 @@ Each component has its own scoped styles:
 
 ```tsx
 // Component.tsx
-import styles from './Component.module.scss';
+import styles from "./Component.module.scss";
 
-export const Component = () => (
-  <div className={styles.container}>...</div>
-);
+export const Component = () => <div className={styles.container}>...</div>;
 ```
 
 ### Production Optimization
@@ -158,6 +156,7 @@ export const Component = () => (
 ### Global Styles
 
 Global styles are in `src/styles/`:
+
 - `main.scss` - Entry point
 - `reset.scss` - CSS reset
 - `variables.scss` - SCSS variables
@@ -172,11 +171,13 @@ This project auto-deploys to a PHP server via GitHub Actions.
 ### Setup
 
 1. Generate SSH key:
+
 ```bash
 ssh-keygen -t ed25519 -C "github-deploy" -f ~/.ssh/deploy_key -N ""
 ```
 
 2. Add public key to server:
+
 ```bash
 ssh-copy-id -i ~/.ssh/deploy_key.pub user@server.com
 ```
@@ -206,10 +207,10 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
 TypeScript path aliases are configured in `tsconfig.json`:
 
 ```typescript
-import { Button } from "@/components";      // ✅ Via barrel file
-import { PostsGrid } from "@/features";     // ✅ Via barrel file
+import { Button } from "@/components"; // ✅ Via barrel file
+import { PostsGrid } from "@/features"; // ✅ Via barrel file
 import BaseLayout from "@/layouts/BaseLayout.astro"; // ✅ Direct import
-import { navigation } from "@/data";        // ✅ Via barrel file
+import { navigation } from "@/data"; // ✅ Via barrel file
 ```
 
 ### Astro Config

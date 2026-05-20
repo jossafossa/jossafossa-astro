@@ -2,7 +2,6 @@
 import { Picture } from "astro:assets";
 import styles from "./Image.module.scss";
 
-
 export type ImageProps = {
   src: ImageMetadata;
   alt: string;
@@ -13,7 +12,13 @@ export type ImageProps = {
 
 type Props = ImageProps;
 
-const { src, alt, ratio, loading = "lazy", layout = "constrained" } = Astro.props;
+const {
+  src,
+  alt,
+  ratio,
+  loading = "lazy",
+  layout = "constrained",
+} = Astro.props;
 
 // sizes="auto" measures the rendered (container) width — only valid with
 // loading="lazy". For eager images, let Astro auto-generate viewport-based sizes.

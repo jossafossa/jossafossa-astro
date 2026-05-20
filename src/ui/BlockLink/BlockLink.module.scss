@@ -1,13 +1,13 @@
 .blockLink {
-    position: relative;
+  position: relative;
 
-    .link {
-        position: absolute;
-        inset:0;
-    }
-    
-    a {
-        z-index: 1;
-        position:relative;
-    }
+  .link {
+    position: absolute;
+    inset: 0;
+  }
+
+  a {
+    z-index: 1;
+    position: relative;
+  }
 }

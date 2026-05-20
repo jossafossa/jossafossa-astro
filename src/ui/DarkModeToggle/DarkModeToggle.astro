@@ -17,11 +17,14 @@ import Toggle from "../Toggle/Toggle.astro";
     });
 
     // React to system preference changes for users who haven't set a manual choice.
-    matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-      if (localStorage.getItem("theme") !== null) return;
-      const theme = e.matches ? "dark" : "light";
-      document.documentElement.dataset.theme = theme;
-      input.checked = e.matches;
-    });
+    matchMedia("(prefers-color-scheme: dark)").addEventListener(
+      "change",
+      (e) => {
+        if (localStorage.getItem("theme") !== null) return;
+        const theme = e.matches ? "dark" : "light";
+        document.documentElement.dataset.theme = theme;
+        input.checked = e.matches;
+      },
+    );
   }
 </script>

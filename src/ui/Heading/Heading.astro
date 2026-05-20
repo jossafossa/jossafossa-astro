@@ -3,13 +3,13 @@ import styles from "./Heading.module.scss";
 
 type Props = {
   level: 1 | 2 | 3 | 4 | 5 | 6;
-appearance?: 1 | 2 | 3 | 4 | 5 | 6;
+  appearance?: 1 | 2 | 3 | 4 | 5 | 6;
 };
 
 const { level, appearance } = Astro.props;
 const Tag = `h${level}` as const;
 ---
 
-<Tag class:list={[styles.heading, styles[`h${appearance ?? level}`] ]}>
+<Tag class:list={[styles.heading, styles[`h${appearance ?? level}`]]}>
   <slot />
 </Tag>
