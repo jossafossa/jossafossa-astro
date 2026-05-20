@@ -1,5 +1,8 @@
 .clickable {
-  all: unset;
+  border: none;
+  background: none;
+  font: inherit;
+  text-decoration: none;
   cursor: pointer;
   display: inline-block;
 
