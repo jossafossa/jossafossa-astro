@@ -9,6 +9,7 @@ import Paragraph from "../Paragraph/Paragraph.astro";
 import Stack from "../Stack/Stack.astro";
 import Tag from "../Tag/Tag.astro";
 import styles from "./CardPost.module.scss";
+import Icon from "../Icon/Icon.astro";
 
 type Author = {
   name: string;
@@ -52,15 +53,16 @@ const { title, date, href, author, image, tags } = Astro.props;
           <Heading level={2} appearance={3}>{title}</Heading>
         </Stack>
 
-        <Stack gap="none">
+        <Stack horizontal align="center">
           {
             author && (
-              <Paragraph>
-                {"By "}
+              <Paragraph size="small" variant="muted">
                 <Link href={`/authors/${author.slug}/`}>{author.name}</Link>
               </Paragraph>
             )
           }
+
+          <Icon name="solid:circle" size={4} />
 
           {
             date && (
