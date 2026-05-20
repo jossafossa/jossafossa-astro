@@ -1,8 +1,18 @@
 .button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+  --height: 3rem;
+  height: var(--height);
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg-muted);
+  color: var(--color-text);
+  border: none;
+  padding-inline: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  min-width: var(--height);
+}
+
+.primary {
+  background-color: var(--color-text);
+  color: var(--color-bg);
 }

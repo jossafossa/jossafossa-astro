@@ -1,10 +1,15 @@
 ---
 import Clickable from "../Clickable/Clickable.astro";
+import type { ClickableProps } from "../Clickable/Clickable.types";
 import styles from "./Button.module.scss";
 
-const { class: className, ...rest } = Astro.props;
+type Props = {
+  variant?: "primary" | "secondary";
+} & ClickableProps;
+
+const { class: className, variant = "primary", ...rest } = Astro.props;
 ---
 
-<Clickable {...rest} class:list={[styles.button, className]}>
+<Clickable {...rest} class:list={[styles.button, styles[variant], className]}>
   <slot />
 </Clickable>
