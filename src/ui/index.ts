@@ -10,6 +10,7 @@ export { default as DateView } from "./Date/Date.astro";
 export { default as Footer } from "./Footer/Footer.astro";
 export { default as Header } from "./Header/Header.astro";
 export { default as Heading } from "./Heading/Heading.astro";
+export { default as Icon } from "./Icon/Icon.astro";
 export { default as HtmlContent } from "./HtmlContent/HtmlContent.astro";
 export { default as Image } from "./Image/Image.astro";
 export { default as Line } from "./Line/Line.astro";

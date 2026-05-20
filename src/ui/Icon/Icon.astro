@@ -1,0 +1,29 @@
+---
+import { Icon as IconifyIcon } from "astro-icon/components";
+import styles from "./Icon.module.scss";
+import classNames from "classnames";
+
+type IconSet = "solid" | "brands";
+
+interface Props {
+  name: `${IconSet}:${string}`;
+  size?: number;
+  class?: string;
+  title?: string;
+}
+
+const { name, size = 16, class: className, title } = Astro.props;
+
+const [set, icon] = name.split(":") as [IconSet, string];
+const iconifyName = `fa6-${set}:${icon}`;
+---
+
+<IconifyIcon
+  name={iconifyName}
+  class={classNames(styles.icon, className)}
+  title={title}
+  style={{
+    "--size": `${size}px`
+  }}
+  aria-hidden={title ? undefined : "true"}
+/>
