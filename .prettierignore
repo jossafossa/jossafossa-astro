@@ -1,0 +1,7 @@
+dist
+node_modules
+.astro
+.playwright-mcp
+public
+package-lock.json
+pnpm-lock.yaml
